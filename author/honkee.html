@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>honkee - honkee</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">honkee </a></h1>
+                <nav><ul>
+                    <li><a href="/category/blog.html">Blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/pelican-install.html">Windows下用Pelican搭建Github Blog</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-10-07T00:00:00+08:00">
+                Published: 周三 07 十月 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/honkee.html">honkee</a>
+        </address>
+<p>In <a href="/category/blog.html">Blog</a>.</p>
+<p>tags: <a href="/tag/jiao-cheng.html">教程</a> </p>
+</footer><!-- /.post-info --><h1>在windows下用Pelican创建一个自己的Github Blog</h1>
+<h2>前言</h2>
+<p>网上也有好多关于在windows下用Pelican创建Blog的文章，但好多文章一个流程走下去，不说为什么那么做，那个命令是用来干嘛的，所以如果在那个流程中遇到什么问题就很难解决。</p>
+<h2>目录</h2>
+<h2>搭建需求</h2>
+<p>Python
+pip
+Pelican
+Markdown
+Git
+Markdown编辑器
+make</p>
+<h3>Python安装</h3>
+<p>可以直接到官网下载Python安装包，也可以安装Anaconda。
+Anaconda集成了Python很多常用的工具和库，如pip。</p>
+<h3>pip安装</h3>
+<p>pip是Python的一个包管理器，非常方便。如果安装Python的时候通过Anaconda安装就自带pip，否则须自行安装pip，网上搜吧。</p>
+<h3>Pelican Markdown安装</h3>
+<p>这是一个python库，用来将Markdown文件转换为Html文件需要的工具。安装方法如下：</p>
+<div class="highlight"><pre>pip install pelican
+pip install markdown
+</pre></div>
+
+
+<h3>Git安装</h3>
+<p>可以通过官网上的Github Desktop去安装，不过这样安装的话下载速度会比较慢。可以搜索Github for windows离线版之类的关键词搜到离线包，下载安装即可。</p>
+<h3>Markdown编辑器</h3>
+<p>Markdown编辑器有好多。windows下有Markdown Pad，MdCharm等等吧。Markdown pad我下载后无法安装，所以我就用MdCharm。我想编辑器应该都差不多了吧，反正一边写，另一边能看就可以了。</p>
+<h2>开始搭建博客</h2>
+<p>好了现在环境是配好了，开始搭建我们的博客吧。</p>
+<div class="highlight"><pre>mkdir blog
+<span class="nb">cd </span>blog
+pelican-quickstart
+</pre></div>
+
+
+<p>mkdir,cd这两个就不用说了吧。
+pelican-quickstart 是用pelican库去创建一个项目。根据提示一步步输入相应的配置项，不知道如何设置的接受默认即可，后续可以通过编辑pelicanconf.py文件更改配置)
+一下是生成的目录结构</p>
+<div class="highlight"><pre>blog/
+├── content              <span class="c"># 存放输入的源文件</span>
+│   └── <span class="o">(</span>pages<span class="o">)</span>          <span class="c"># 存放手工创建的静态页面</span>
+├── output               <span class="c"># 生成的输出文件</span>
+├── develop_server.sh    <span class="c"># 方便开启测试服务器</span>
+├── Makefile             <span class="c"># 方便管理博客的Makefile</span>
+├── pelicanconf.py       <span class="c"># 主配置文件</span>
+└── publishconf.py       <span class="c"># 主发布文件，可删除</span>
+</pre></div>
+
+
+<h3>写博文</h3>
+<p>在content目录下用Markdown语法来写一篇文章。
+文章的开头一定要有虾米那这些关键字，make publish的时候会报错。</p>
+<div class="highlight"><pre>Date: xxxx-xx-xx
+Title: xxxx
+Tags: xxxxx
+Category: xxxxx
+Slug: xxxxxx
+</pre></div>
+
+
+<p>写完博文之后就可以通过下面的命令生成网页了。</p>
+<div class="highlight"><pre>make publish
+</pre></div>
+
+
+<p>运行完这个命令后会在output文件夹里生成好多网页和文件夹，就是这个网站的css,image还有各种其他东西。要注意的是，这个命令会将原来的东西删除了再重新生成的。下面会讲到如何配置才能不全部删除再生成。
+如果想通过网页看看博客的效果可以用下面这个命令</p>
+<div class="highlight"><pre>make serve
+</pre></div>
+
+
+<p>执行上面那条命令就会建一个服务器吧。可在本机http://127.0.0.1:8000 看到效果。有些浏览器可能说没有证书没法打开。我用Opera无法打开，用Chrome正常打开。</p>
+<p>到此为止，在本地的工作就完成了。需要将本地的项目上传到github上了。
+进入到output文件夹。
+用下面这条命令生成一个.git文件，记录这个项目是否修改之类的信息。</p>
+<div class="highlight"><pre>git init
+</pre></div>
+
+
+<p>再用下面这条命令将github上的文件下载下来，我觉得这个命令就相当与将这个文件夹与github上对应的分支绑定起来，以后用git push的时候就知道往哪个分支上push。如果不调用这个命令直接调用git push它会提示先要git pull。</p>
+<div class="highlight"><pre>git pull https://github.com/github_username/site_username.githu
+b.io
+</pre></div>
+
+
+<p>site_username是你自己创建仓库的时候定义的名字。
+github_username是你github账户的名字
+将文件夹里变化的信息更新到.git中</p>
+<div class="highlight"><pre>git add .
+git commit -m <span class="s2">&quot;update&quot;</span>
+</pre></div>
+
+
+<p>将文件上传到github上</p>
+<div class="highlight"><pre>git push origin master
+</pre></div>
+
+
+<p>就这样，github上的文件就跟你本地上的一样了。可以通过访问site_username.github.io来访问你的内容了。</p>
+<p>为了开发方便，你也可以用它的makefile文件去发布你的网页。
+makefile文件有两个地方需要修改的。</p>
+<div class="highlight"><pre>publish:
+    <span class="k">$(</span>PELICAN<span class="k">)</span> <span class="k">$(</span>INPUTDIR<span class="k">)</span> -o <span class="k">$(</span>OUTPUTDIR<span class="k">)</span> -s <span class="k">$(</span>CONFFILE<span class="k">)</span> <span class="k">$(</span>PELICANOPTS<span class="k">)</span>
+
+github: publish
+    <span class="nb">cd</span> <span class="k">$(</span>OUTPUTDIR<span class="k">)</span> <span class="o">&amp;&amp;</span> git add .
+    <span class="nb">cd</span> <span class="k">$(</span>OUTPUTDIR<span class="k">)</span> <span class="o">&amp;&amp;</span> git commit -am <span class="s1">&#39;commit&#39;</span> 
+    <span class="nb">cd</span> <span class="k">$(</span>OUTPUTDIR<span class="k">)</span> <span class="o">&amp;&amp;</span> git push  origin <span class="k">$(</span>GITHUB_PAGES_BRANCH<span class="k">)</span>
+</pre></div>
+
+
+<p>原来文件是这样的</p>
+<div class="highlight"><pre>publish:
+    <span class="k">$(</span>PELICAN<span class="k">)</span> <span class="k">$(</span>INPUTDIR<span class="k">)</span> -o <span class="k">$(</span>OUTPUTDIR<span class="k">)</span> -s <span class="k">$(</span>PUBLISHCONF<span class="k">)</span> <span class="k">$(</span>PELICANOPTS<span class="k">)</span>
+
+github: publish
+    ghp-import -m <span class="s2">&quot;Generate Pelican site&quot;</span> -b <span class="k">$(</span>GITHUB_PAGES_BRANCH<span class="k">)</span> <span class="k">$(</span>OUTPUTDIR<span class="k">)</span>
+    git push origin <span class="k">$(</span>GITHUB_PAGES_BRANCH<span class="k">)</span>
+</pre></div>
+
+
+<p>原来的publish中的$(PUBLISHCONF)指向的脚本会清楚原来文件夹里的东西再生成html文件的，而$(CONFFILE)指向的脚本只是更新。我们.git仓库的东西不希望被删除，所以一定要修改成上面的那个形式。
+github那一栏原来的内容我不太懂，但是主要就是想执行我们之前通过命令行进行上传的3条命令。所以我就改为上面所示，之所以每条命令前面都要加"cd $(OUTPUTDIR) &amp;&amp;"是因为执行完一条命令后它的当前目录就变为了执行make命令的目录，不相信的朋友可以在github那一栏中加一句命令dir看看。</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
