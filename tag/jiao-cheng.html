@@ -111,14 +111,18 @@ Slug: xxxxxx
 </pre></div>
 
 
-<p>再用下面这条命令将github上的文件下载下来，我觉得这个命令就相当与将这个文件夹与github上对应的分支绑定起来，以后用git push的时候就知道往哪个分支上push。如果不调用这个命令直接调用git push它会提示先要git pull。</p>
-<div class="highlight"><pre>git pull https://github.com/github_username/site_username.githu
+<p>这个我不太明白，好像没有这句好像是不行的，这句运行是不会报错的。</p>
+<div class="highlight"><pre>git remote add origin https://github.com/username/username.github.io.git
+</pre></div>
+
+
+<p>再用下面这条命令将github上的文件下载下来，我觉得这个命令就相当与将这个文件夹与github上对应的分支绑定起来，以后用git push的时候就知道往哪个分支上push。如果不调用这个命令直接调用git push它会提示先要git pull。运行这句话是没有错误的，如果有错误的话，可能是因为你文件夹里有与github上名字相同的文件，建议将output文件夹中除.git文件夹外其他文件都删除。完成了这一步之后再重新将博客编译一次。</p>
+<div class="highlight"><pre>git pull https://github.com/username/username.githu
 b.io
 </pre></div>
 
 
-<p>site_username是你自己创建仓库的时候定义的名字。
-github_username是你github账户的名字
+<p>username是你自己创建的名字。
 将文件夹里变化的信息更新到.git中</p>
 <div class="highlight"><pre>git add .
 git commit -m <span class="s2">&quot;update&quot;</span>
