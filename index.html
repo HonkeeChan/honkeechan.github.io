@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<html lang="zh"
+>
 <head>
-    <title>honkee's blog</title>
+    <title>Honkee</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,11 +14,11 @@
         <meta name="author" content="honkee" />
 
     <!-- Open Graph tags -->
-        <meta property="og:site_name" content="honkee's blog" />
+        <meta property="og:site_name" content="Honkee" />
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="honkee's blog"/>
+        <meta property="og:title" content="Honkee"/>
         <meta property="og:url" content="http://honkeechan.github.io"/>
-        <meta property="og:description" content="honkee's blog"/>
+        <meta property="og:description" content="Honkee"/>
 
 
     <!-- Bootstrap -->
@@ -26,9 +27,6 @@
 
     <link href="http://honkeechan.github.io/theme/css/pygments/native.css" rel="stylesheet">
     <link rel="stylesheet" href="http://honkeechan.github.io/theme/css/style.css" type="text/css"/>
-
-
-
 
 
 </head>
@@ -44,7 +42,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="http://honkeechan.github.io/" class="navbar-brand">
-honkee's blog            </a>
+Honkee            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -64,10 +62,32 @@ honkee's blog            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+
             <article>
-                <h2><a href="http://honkeechan.github.io/window-pelican-github.html">Windows下用Pelican搭建Github Blog</a></h2>
-                <div class="summary"><h1>在windows下用Pelican创建一个自己的Github Blog</h1>
-<h2>前言</h2>
+                <h2><a href="http://honkeechan.github.io/articles/2015/github-blog-advantage.html">Windows下用Pelican搭建Github Blog高级篇</a></h2>
+                <div class="summary"><h2>前言</h2>
+<p>前一篇文章讲了如何在Windows下用Pelican搭建Github Blog, 为了使博客更美观，我们可以使用主题和插件。</p>
+<h2>主题</h2>
+<p>安装主题，<a href="http://www.pelicanthemes.com/">Pelican主题</a>有很多，我的主题是<a href="https://github.com/DandyDev/pelican-bootstrap3">pelican-bootstrap3</a>。添加主题非常简单，将主题下载到博客的目录下，在pelicanconf.py中添加</p>
+<div class="highlight"><pre><span class="nv">THEME</span> <span class="o">=</span> <span class="s1">&#39;path/to/the/theme&#39;</span>
+</pre></div>
+
+
+<p>路径是从pelicanconf.py到那个主题的相对路径。</p>
+<h2>安装第三方评论系统</h2>
+<p>第三方评论系统也有很多，如Disqus，多说，等等。我这里用了Disqus。在Disqus上申请一个账号，记住Shortname，在pelicanconf.py添加</p>
+<div class="highlight"><pre><span class="nv">DISQUS_SITENAME</span> <span class="o">=</span> Shortname
+</pre></div>
+
+
+<h2>添加插件</h2>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/github-blog-advantage.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/window-pelican-github.html">Windows下用Pelican搭建Github Blog</a></h2>
+                <div class="summary"><h2>前言</h2>
 <p>网上也有好多关于在windows下用Pelican创建Blog的文章，但好多文章一个流程走下去，不说为什么那么做，那个命令是用来干嘛的，所以如果在那个流程中遇到什么问题就很难解决。</p>
 <h2>目录</h2>
 <h2>搭建需求</h2>
@@ -84,7 +104,7 @@ Anaconda集成了Python很多常用的工具和库，如pip。</p>
 <h3>pip安装</h3>
 <p>pip是Python的一个包管理器，非常方便。如果安装Python的时候通过Anaconda安装就自带pip，否则须自行安装pip，网上搜吧。</p>
 <h3>Pelican Markdown安装</h3>
-<p>这是一个python库，用来将Markdown文件转换为Html文件需要的工具。安装方法如下：</p>
+<p>这是一个python库，用来将Markdown文件转换为Html文件需要的工具。安装方法如下： </p>
 <div class="highlight"><pre>pip install pelican
 pip install markdown
 </pre></div>
@@ -93,8 +113,8 @@ pip install markdown
 <h3>Git安装</h3>
 <p>可以通过官网上的Github Desktop去安装，不过这样安装的话下载速度会比较慢。可以搜索Github for windows离线版之类的关键词搜到离线包，下载安装即可。</p>
 <h3>Markdown编辑器</h3>
-<p>Markdown编辑器有好多。windows下有Markdown ...</p>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/window-pelican-github.html">more ...</a>
+<p>Markdown编辑器有好多。windows下有Markdown Pad，MdCharm等等吧 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/window-pelican-github.html">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -114,13 +134,15 @@ pip install markdown
 
 
 
-
-
+            <li class="list-group-item"><a href="http://honkeechan.github.io/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                </ul>
+            </li>
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
-            <a href="http://getpelican.com/" target="_blank">
-                Pelican
+            <a href="http://blog.csdn.net/honkee_" target="_blank">
+                CSDN
             </a>
         </li>
         <li class="list-group-item">
