@@ -64,6 +64,63 @@ Honkee            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/dlib to face align using python.html">dlib to face align using python</a></h2>
+                <div class="summary"><h2>人脸特征点检测</h2>
+<div class="highlight"><pre><span class="n">predictor_path</span> <span class="o">=</span> <span class="s">&#39;path/to/shape_predictor_68_face_landmarks.dat&#39;</span>
+<span class="n">img</span> <span class="o">=</span> <span class="s">&#39;the/face/you/want/to/predict&#39;</span>
+
+<span class="n">detector</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">get_frontal_face_detector</span><span class="p">()</span>
+<span class="n">predictor</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">shape_predictor</span><span class="p">(</span><span class="n">predictor_path</span><span class="p">)</span>
+
+<span class="n">dets</span> <span class="o">=</span> <span class="n">detector</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">shape</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+
+
+<blockquote>
+<p>get_frontal_face_detector</p>
+</blockquote>
+<p>detector返回的dets是识别出人脸区域对应的矩形。
+第二个参数1，表示将图片放大（upsample）1倍，这是为了使图片中的东西更大，更利于我们检测人脸</p>
+<blockquote>
+<p>shape_predictor</p>
+</blockquote>
+<p>predictor的输入参数d是代表从d这个矩形范围内找landmark。
+predictor返回的shape就是检测出的68个特征点(face_landmarks)，我们可以调用shape.part(0) ... shape.part(67)得到每一个特征点对应的坐标。</p>
+<h2>Affine Transform</h2>
+<p><img alt="" src="/images/Affine" title="Transform Matrix.png" /> 
+<img alt="" src="/images/Warp_Affine_Tutorial_Theory.jpg" /> 
+通过函数getAffineTransform得到A状态到B状态的转换矩阵 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/dlib to face align using python.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/python-tips.html">Python小技巧</a></h2>
+                <div class="summary"><h2>创建目录</h2>
+<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span> <span class="n">path</span> <span class="p">[,</span><span class="n">mode</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+
+
+<p>作用：创建一个目录，可以是相对或者绝对路径，mode的默认模式是0777。
+如果目录有多级，则创建最后一级。如果最后一级目录的上级目录有不存在的，则会抛出一个<code>OSError</code>。</p>
+<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span> <span class="n">path</span> <span class="p">[,</span><span class="n">mode</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+
+
+<p>作用： 创建递归的目录树，可以是相对或者绝对路径，mode的默认模式也是0777。
+如果子目录创建失败或者已经存在，会抛出一个<code>OSError</code>的异常，Windows上Error 183即为目录已经存在的异常错误。如果path只有一级，与mkdir一样。</p>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  
+        <span class="k">if</span> <span class="n">exc</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">EEXIST</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">else ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-tips.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://honkeechan.github.io/articles/2015/face-database-sumary.html">人脸数据库汇总</a></h2>
                 <div class="summary"><p>empty.</p>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/face-database-sumary.html">more ...</a>
