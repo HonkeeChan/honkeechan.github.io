@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>Archives - Honkee</title>
+    <title>argparse - Honkee</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,7 +11,8 @@
 
 
 
-        <meta name="author" content="honkee" />
+    <meta name="author" content="honkee" />
+    <meta name="keywords" content="argparse" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Honkee" />
@@ -63,51 +64,27 @@ Honkee            </a>
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="content">
-        <h1>Archives for Honkee</h1>
-        <div id="archives">
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-30T00:00:00+08:00">周五 30 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/Grub-Rescure.html">Grub rescue引导修复</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-30T00:00:00+08:00">周五 30 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/ideas of Hackathon.html">Hackathon的一些想法</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-28T00:00:00+08:00">周三 28 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/python argparse.html">Python命令行编程库——argparse</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-27T00:00:00+08:00">周二 27 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/dlib to face align using python.html">dlib to face align using python</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-27T00:00:00+08:00">周二 27 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/python-tips.html">Python小技巧</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-23T00:00:00+08:00">周五 23 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/face-database-sumary.html">人脸数据库汇总</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-23T00:00:00+08:00">周五 23 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">Python画柱状图</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-23T00:00:00+08:00">周五 23 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/python-read-file.html">Python读取文本</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-07T00:00:00+08:00">周三 07 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/github-blog-advantage.html">Windows下用Pelican搭建Github Blog高级篇</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-07T00:00:00+08:00">周三 07 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/window-pelican-github.html">Windows下用Pelican搭建Github Blog</a>
-                </p>
-        </div>
-    </section>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/python argparse.html">Python命令行编程库——argparse</a></h2>
+                <div class="summary"><p>这篇文章是基本上是Python Doc[https://docs.python.org/2/howto/argparse.html#id1]的翻译与总结</p>
+<h2>添加参数</h2>
+<h4>定位参数(position argument)</h4>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;echo&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">args</span><span class="o">.</span><span class="n">echo</span>
+</pre></div>
+
+
+<p>就是通过<code>add_argument()</code>来添加参数
+输入的参数默认是字符串，如果你输入的是数字，想解释为数字，那么你就需要在<code>add_argument()</code>那里添加一个<code>type</code>的参数</p>
+<div class="highlight"><pre><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;square&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;display a square of a ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python argparse.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

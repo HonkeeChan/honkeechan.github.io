@@ -64,6 +64,70 @@ Honkee            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/Grub-Rescure.html">Grub rescue引导修复</a></h2>
+                <div class="summary"><p>我电脑上装着3个系统，一个windows 7，一个Kali linux，一个Ubuntu 14.04。今天将Kali linux删了，系统就进不去了。百度了一阵才能将系统找回来。
+首先ls查看一下自己硬盘上的分区。因为我删了Kali linux的分区，所以现在剩下两个分区，这两个分区是Windows的C盘，Ubuntu的根目录.
+第二句是设置根目录，
+第三句是告诉grub，grub2在哪个位置
+第四句是加载normal.mod这个模块，这个模块就是正常启动的模块，里面的菜单项就是grub.cfg（在/boot/grub/grub.cfg）。
+第五句就可以出现正常启动的菜单了。</p>
+<div class="highlight"><pre>grub rescure&gt;ls
+<span class="o">(</span>hd0<span class="o">)(</span>hd0,msdos1<span class="o">)(</span>hd0,msdos2<span class="o">)</span> ...
+grub rescure&gt;set <span class="nv">root</span><span class="o">=(</span>hd0,msdos2<span class="o">)</span>
+grub rescure&gt;set <span class="nv">prefix ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/Grub-Rescure.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/ideas of Hackathon.html">Hackathon的一些想法</a></h2>
+                <div class="summary"><h2>Hackathon介绍</h2>
+<p>我们想到几个idea</p>
+<h2>流量共享平台</h2>
+<p>队友idea：
+我们日常的流量可能不是每个月都能用完，如果我们可以建一个平台，在上面共享流量，然后获得积分，以后我们可以通过这些积分兑换平台上的流量。虽然并不知道这有什么卵用。。。。</p>
+<h2>手势控制俄罗斯方块</h2>
+<p>队友idea：
+这。。没什么好说的，就是通过肢体识别之类的去识别左移、右移、翻转就好了</p>
+<h2>教室课表</h2>
+<p>很多时候我们想听一些课程，可是我们只能通过同学才能知道同学的课表，如果我们有个平台将每个教室每个时间，上什么课都记录在平台上，我们还可以通过搜索来查询某个课程在什么时候那个教室有课，这会使我们更加方便。
+我不知道“课程表”这个应用现在有没有实现这个功能。</p>
+<h2>银行网上预约功能</h2>
+<p>每次去银行都要取号排队，并且需要等很久，如果我们可以通过网上取号排队，可以在快到我们的时候我们再去银行，这样我们就可以节省很多时间。
+可是最近才发现已经有一些银行实现了这种功能，只是我们还没有发现而已。。。</p>
+<h2>AA付款的未交款提示</h2>
+<p>每次出去聚会如果使用AA付款的话，我们却不清楚哪个人已经付款了，哪个人还没付款，还要我们自己去统计这些信息。。</p>
+<h2>双耳效应</h2>
+<p>一个朋友给我的建议：</p>
+<h2>vs项目快照</h2>
+<p>队友idea：
+像VMWare一样，提供一个快照功能，可以在想要rollback的时候rollback。
+还有一个针对C++的Get，Set生成器 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/ideas of Hackathon.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/python argparse.html">Python命令行编程库——argparse</a></h2>
+                <div class="summary"><p>这篇文章是基本上是Python Doc[https://docs.python.org/2/howto/argparse.html#id1]的翻译与总结</p>
+<h2>添加参数</h2>
+<h4>定位参数(position argument)</h4>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;echo&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">args</span><span class="o">.</span><span class="n">echo</span>
+</pre></div>
+
+
+<p>就是通过<code>add_argument()</code>来添加参数
+输入的参数默认是字符串，如果你输入的是数字，想解释为数字，那么你就需要在<code>add_argument()</code>那里添加一个<code>type</code>的参数</p>
+<div class="highlight"><pre><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;square&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;display a square of a ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python argparse.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://honkeechan.github.io/articles/2015/dlib to face align using python.html">dlib to face align using python</a></h2>
                 <div class="summary"><h2>人脸特征点检测</h2>
 <div class="highlight"><pre><span class="n">predictor_path</span> <span class="o">=</span> <span class="s">&#39;path/to/shape_predictor_68_face_landmarks.dat&#39;</span>

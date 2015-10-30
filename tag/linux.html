@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>Archives - Honkee</title>
+    <title>Linux - Honkee</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,7 +11,8 @@
 
 
 
-        <meta name="author" content="honkee" />
+    <meta name="author" content="honkee" />
+    <meta name="keywords" content="Linux" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Honkee" />
@@ -63,51 +64,23 @@ Honkee            </a>
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="content">
-        <h1>Archives for Honkee</h1>
-        <div id="archives">
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-30T00:00:00+08:00">周五 30 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/Grub-Rescure.html">Grub rescue引导修复</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-30T00:00:00+08:00">周五 30 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/ideas of Hackathon.html">Hackathon的一些想法</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-28T00:00:00+08:00">周三 28 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/python argparse.html">Python命令行编程库——argparse</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-27T00:00:00+08:00">周二 27 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/dlib to face align using python.html">dlib to face align using python</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-27T00:00:00+08:00">周二 27 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/python-tips.html">Python小技巧</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-23T00:00:00+08:00">周五 23 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/face-database-sumary.html">人脸数据库汇总</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-23T00:00:00+08:00">周五 23 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">Python画柱状图</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-23T00:00:00+08:00">周五 23 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/python-read-file.html">Python读取文本</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-07T00:00:00+08:00">周三 07 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/github-blog-advantage.html">Windows下用Pelican搭建Github Blog高级篇</a>
-                </p>
-                <p>
-                    <span class="categories-timestamp"><time datetime="2015-10-07T00:00:00+08:00">周三 07 十月 2015</time></span>
-                    <a href="http://honkeechan.github.io/articles/2015/window-pelican-github.html">Windows下用Pelican搭建Github Blog</a>
-                </p>
-        </div>
-    </section>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/Grub-Rescure.html">Grub rescue引导修复</a></h2>
+                <div class="summary"><p>我电脑上装着3个系统，一个windows 7，一个Kali linux，一个Ubuntu 14.04。今天将Kali linux删了，系统就进不去了。百度了一阵才能将系统找回来。
+首先ls查看一下自己硬盘上的分区。因为我删了Kali linux的分区，所以现在剩下两个分区，这两个分区是Windows的C盘，Ubuntu的根目录.
+第二句是设置根目录，
+第三句是告诉grub，grub2在哪个位置
+第四句是加载normal.mod这个模块，这个模块就是正常启动的模块，里面的菜单项就是grub.cfg（在/boot/grub/grub.cfg）。
+第五句就可以出现正常启动的菜单了。</p>
+<div class="highlight"><pre>grub rescure&gt;ls
+<span class="o">(</span>hd0<span class="o">)(</span>hd0,msdos1<span class="o">)(</span>hd0,msdos2<span class="o">)</span> ...
+grub rescure&gt;set <span class="nv">root</span><span class="o">=(</span>hd0,msdos2<span class="o">)</span>
+grub rescure&gt;set <span class="nv">prefix ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/Grub-Rescure.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
