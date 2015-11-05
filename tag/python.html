@@ -50,6 +50,9 @@ Honkee            </a>
                         <li >
                             <a href="http://honkeechan.github.io/category/blog.html">Blog</a>
                         </li>
+                        <li >
+                            <a href="http://honkeechan.github.io/category/diary.html">Diary</a>
+                        </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="http://honkeechan.github.io/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
@@ -70,16 +73,7 @@ Honkee            </a>
 <h2>添加参数</h2>
 <h4>定位参数(position argument)</h4>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;echo&quot;</span><span class="p">)</span>
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">args</span><span class="o">.</span><span class="n">echo</span>
-</pre></div>
-
-
-<p>就是通过<code>add_argument()</code>来添加参数
-输入的参数默认是字符串，如果你输入的是数字，想解释为数字，那么你就需要在<code>add_argument()</code>那里添加一个<code>type</code>的参数</p>
-<div class="highlight"><pre><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;square&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;display a square of a ...</span></pre></div>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python argparse.html">more ...</a>
                 </div>
             </article>
@@ -91,27 +85,7 @@ Honkee            </a>
 <span class="n">img</span> <span class="o">=</span> <span class="s">&#39;the/face/you/want/to/predict&#39;</span>
 
 <span class="n">detector</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">get_frontal_face_detector</span><span class="p">()</span>
-<span class="n">predictor</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">shape_predictor</span><span class="p">(</span><span class="n">predictor_path</span><span class="p">)</span>
-
-<span class="n">dets</span> <span class="o">=</span> <span class="n">detector</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">shape</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-</pre></div>
-
-
-<blockquote>
-<p>get_frontal_face_detector</p>
-</blockquote>
-<p>detector返回的dets是识别出人脸区域对应的矩形。
-第二个参数1，表示将图片放大（upsample）1倍，这是为了使图片中的东西更大，更利于我们检测人脸</p>
-<blockquote>
-<p>shape_predictor</p>
-</blockquote>
-<p>predictor的输入参数d是代表从d这个矩形范围内找landmark。
-predictor返回的shape就是检测出的68个特征点(face_landmarks)，我们可以调用shape.part(0) ... shape.part(67)得到每一个特征点对应的坐标。</p>
-<h2>Affine Transform</h2>
-<p><img alt="" src="/images/Affine_Transform_Matrix.png" /> 
-<img alt="" src="/images/Warp_Affine_Tutorial_Theory.jpg" /> 
-通过函数getAffineTransform得到A状态到B状态的转换矩阵 ...</p>
+<span class="n">predictor</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">shape_predictor</span><span class="p">(</span><span class="n">predictor_path ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/dlib to face align using python.html">more ...</a>
                 </div>
             </article>
@@ -129,14 +103,7 @@ predictor返回的shape就是检测出的68个特征点(face_landmarks)，我们
 </pre></div>
 
 
-<p>作用： 创建递归的目录树，可以是相对或者绝对路径，mode的默认模式也是0777。
-如果子目录创建失败或者已经存在，会抛出一个<code>OSError</code>的异常，Windows上Error 183即为目录已经存在的异常错误。如果path只有一级，与mkdir一样。</p>
-<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  
-        <span class="k">if</span> <span class="n">exc</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">EEXIST</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-            <span class="k">pass</span>
-        <span class="k">else ...</span></pre></div>
+<p>作用： 创建递归的目录树 ...</p>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-tips.html">more ...</a>
                 </div>
             </article>
@@ -150,15 +117,7 @@ predictor返回的shape就是检测出的68个特征点(face_landmarks)，我们
 <span class="k">def</span> <span class="nf">GetBarFrequency</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">barTotal</span><span class="p">,</span> <span class="n">minNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">maxNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
     <span class="c">#没有自定义最大最小值则用数组计算最大最小值</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">maxNum</span><span class="p">:</span>
-        <span class="n">maxNum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">minNum</span><span class="p">:</span>
-        <span class="n">minNum</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-    <span class="n">interval</span> <span class="o">=</span> <span class="p">(</span><span class="n">maxNum</span> <span class="o">-</span> <span class="n">minNum</span><span class="p">)</span> <span class="o">/</span> <span class="n">barTotal</span>
-    <span class="c">#定义多一个元素，后面就会发现它的作用</span>
-    <span class="n">barCntArr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">barTotal</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s">&#39;int&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
-        <span class="n">barIndex</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">item</span> <span class="o">-</span> <span class="n">minNum</span><span class="p">)</span> <span class="o">/</span> <span class="n">interval</span><span class="p">)</span>
-        <span class="n">barCntArr</span><span class="p">[</span><span class="n">barIndex ...</span></pre></div>
+        <span class="n">maxNum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">more ...</a>
                 </div>
             </article>
@@ -169,25 +128,7 @@ predictor返回的shape就是检测出的68个特征点(face_landmarks)，我们
 <p>Python 将文本文件的内容读入可以操作的字符串变量非常容易。文件对象提供了三个“读”方法： <code>.read()</code>，<code>.readline()</code> 和 <code>.readlines()</code>。</p>
 <p><code>.read()</code>和 <code>.readlines()</code>都是读取整个文件的，对于大文件来说，一次性将大文件放到内容比较吃力，可以用 <code>.readline()</code>一行一行的读入处理。</p>
 <blockquote>
-<p>code 1:</p>
-</blockquote>
-<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">line</span>
-</pre></div>
-
-
-<blockquote>
-<p>code 2:</p>
-</blockquote>
-<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
-    <span class="k">print</span> <span class="n">line</span>
-</pre></div>
-
-
-<p>code 1，2都是一样的功能。
-f就是一个文件，<code>print f</code>会输出<code>&lt;open ...</code></p>
+<p>code ...</p></blockquote>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-read-file.html">more ...</a>
                 </div>
             </article>

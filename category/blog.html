@@ -50,6 +50,9 @@ Honkee            </a>
                         <li class="active">
                             <a href="http://honkeechan.github.io/category/blog.html">Blog</a>
                         </li>
+                        <li >
+                            <a href="http://honkeechan.github.io/category/diary.html">Diary</a>
+                        </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="http://honkeechan.github.io/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
@@ -69,13 +72,7 @@ Honkee            </a>
                 <div class="summary"><p>我电脑上装着3个系统，一个windows 7，一个Kali linux，一个Ubuntu 14.04。今天将Kali linux删了，系统就进不去了。百度了一阵才能将系统找回来。
 首先ls查看一下自己硬盘上的分区。因为我删了Kali linux的分区，所以现在剩下两个分区，这两个分区是Windows的C盘，Ubuntu的根目录.
 第二句是设置根目录，
-第三句是告诉grub，grub2在哪个位置
-第四句是加载normal.mod这个模块，这个模块就是正常启动的模块，里面的菜单项就是grub.cfg（在/boot/grub/grub.cfg）。
-第五句就可以出现正常启动的菜单了。</p>
-<div class="highlight"><pre>grub rescure&gt;ls
-<span class="o">(</span>hd0<span class="o">)(</span>hd0,msdos1<span class="o">)(</span>hd0,msdos2<span class="o">)</span> ...
-grub rescure&gt;set <span class="nv">root</span><span class="o">=(</span>hd0,msdos2<span class="o">)</span>
-grub rescure&gt;set <span class="nv">prefix ...</span></pre></div>
+第三句是告诉grub ...</p>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/Grub-Rescure.html">more ...</a>
                 </div>
             </article>
@@ -83,7 +80,8 @@ grub rescure&gt;set <span class="nv">prefix ...</span></pre></div>
             <article>
                 <h2><a href="http://honkeechan.github.io/articles/2015/ideas of Hackathon.html">Hackathon的一些想法</a></h2>
                 <div class="summary"><h2>Hackathon介绍</h2>
-<p>我们想到几个idea</p>
+<p><a href="http://baike.baidu.com/link?url=mxk11rPCPSc6eswBKlv-_lI1hEt3gN0df-Nf7VYXXIonKkzBrEgfKCldJtDOC8_1LL9tqobEwCCFPYarpSwDqq">百度百科</a>
+我们想到几个idea</p>
 <h2>流量共享平台</h2>
 <p>队友idea：
 我们日常的流量可能不是每个月都能用完，如果我们可以建一个平台，在上面共享流量，然后获得积分，以后我们可以通过这些积分兑换平台上的流量。虽然并不知道这有什么卵用。。。。</p>
@@ -91,19 +89,7 @@ grub rescure&gt;set <span class="nv">prefix ...</span></pre></div>
 <p>队友idea：
 这。。没什么好说的，就是通过肢体识别之类的去识别左移、右移、翻转就好了</p>
 <h2>教室课表</h2>
-<p>很多时候我们想听一些课程，可是我们只能通过同学才能知道同学的课表，如果我们有个平台将每个教室每个时间，上什么课都记录在平台上，我们还可以通过搜索来查询某个课程在什么时候那个教室有课，这会使我们更加方便。
-我不知道“课程表”这个应用现在有没有实现这个功能。</p>
-<h2>银行网上预约功能</h2>
-<p>每次去银行都要取号排队，并且需要等很久，如果我们可以通过网上取号排队，可以在快到我们的时候我们再去银行，这样我们就可以节省很多时间。
-可是最近才发现已经有一些银行实现了这种功能，只是我们还没有发现而已。。。</p>
-<h2>AA付款的未交款提示</h2>
-<p>每次出去聚会如果使用AA付款的话，我们却不清楚哪个人已经付款了，哪个人还没付款，还要我们自己去统计这些信息。。</p>
-<h2>双耳效应</h2>
-<p>一个朋友给我的建议：</p>
-<h2>vs项目快照</h2>
-<p>队友idea：
-像VMWare一样，提供一个快照功能，可以在想要rollback的时候rollback。
-还有一个针对C++的Get，Set生成器 ...</p>
+<p>很多时候我们想听一些课程 ...</p>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/ideas of Hackathon.html">more ...</a>
                 </div>
             </article>
@@ -114,16 +100,7 @@ grub rescure&gt;set <span class="nv">prefix ...</span></pre></div>
 <h2>添加参数</h2>
 <h4>定位参数(position argument)</h4>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;echo&quot;</span><span class="p">)</span>
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<span class="k">print</span> <span class="n">args</span><span class="o">.</span><span class="n">echo</span>
-</pre></div>
-
-
-<p>就是通过<code>add_argument()</code>来添加参数
-输入的参数默认是字符串，如果你输入的是数字，想解释为数字，那么你就需要在<code>add_argument()</code>那里添加一个<code>type</code>的参数</p>
-<div class="highlight"><pre><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;square&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;display a square of a ...</span></pre></div>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python argparse.html">more ...</a>
                 </div>
             </article>
@@ -135,27 +112,7 @@ grub rescure&gt;set <span class="nv">prefix ...</span></pre></div>
 <span class="n">img</span> <span class="o">=</span> <span class="s">&#39;the/face/you/want/to/predict&#39;</span>
 
 <span class="n">detector</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">get_frontal_face_detector</span><span class="p">()</span>
-<span class="n">predictor</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">shape_predictor</span><span class="p">(</span><span class="n">predictor_path</span><span class="p">)</span>
-
-<span class="n">dets</span> <span class="o">=</span> <span class="n">detector</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">shape</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-</pre></div>
-
-
-<blockquote>
-<p>get_frontal_face_detector</p>
-</blockquote>
-<p>detector返回的dets是识别出人脸区域对应的矩形。
-第二个参数1，表示将图片放大（upsample）1倍，这是为了使图片中的东西更大，更利于我们检测人脸</p>
-<blockquote>
-<p>shape_predictor</p>
-</blockquote>
-<p>predictor的输入参数d是代表从d这个矩形范围内找landmark。
-predictor返回的shape就是检测出的68个特征点(face_landmarks)，我们可以调用shape.part(0) ... shape.part(67)得到每一个特征点对应的坐标。</p>
-<h2>Affine Transform</h2>
-<p><img alt="" src="/images/Affine_Transform_Matrix.png" /> 
-<img alt="" src="/images/Warp_Affine_Tutorial_Theory.jpg" /> 
-通过函数getAffineTransform得到A状态到B状态的转换矩阵 ...</p>
+<span class="n">predictor</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">shape_predictor</span><span class="p">(</span><span class="n">predictor_path ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/dlib to face align using python.html">more ...</a>
                 </div>
             </article>
@@ -173,14 +130,7 @@ predictor返回的shape就是检测出的68个特征点(face_landmarks)，我们
 </pre></div>
 
 
-<p>作用： 创建递归的目录树，可以是相对或者绝对路径，mode的默认模式也是0777。
-如果子目录创建失败或者已经存在，会抛出一个<code>OSError</code>的异常，Windows上Error 183即为目录已经存在的异常错误。如果path只有一级，与mkdir一样。</p>
-<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  
-        <span class="k">if</span> <span class="n">exc</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">EEXIST</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-            <span class="k">pass</span>
-        <span class="k">else ...</span></pre></div>
+<p>作用： 创建递归的目录树 ...</p>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-tips.html">more ...</a>
                 </div>
             </article>
@@ -201,15 +151,7 @@ predictor返回的shape就是检测出的68个特征点(face_landmarks)，我们
 <span class="k">def</span> <span class="nf">GetBarFrequency</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">barTotal</span><span class="p">,</span> <span class="n">minNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">maxNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
     <span class="c">#没有自定义最大最小值则用数组计算最大最小值</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">maxNum</span><span class="p">:</span>
-        <span class="n">maxNum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">minNum</span><span class="p">:</span>
-        <span class="n">minNum</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-    <span class="n">interval</span> <span class="o">=</span> <span class="p">(</span><span class="n">maxNum</span> <span class="o">-</span> <span class="n">minNum</span><span class="p">)</span> <span class="o">/</span> <span class="n">barTotal</span>
-    <span class="c">#定义多一个元素，后面就会发现它的作用</span>
-    <span class="n">barCntArr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">barTotal</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s">&#39;int&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
-        <span class="n">barIndex</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">item</span> <span class="o">-</span> <span class="n">minNum</span><span class="p">)</span> <span class="o">/</span> <span class="n">interval</span><span class="p">)</span>
-        <span class="n">barCntArr</span><span class="p">[</span><span class="n">barIndex ...</span></pre></div>
+        <span class="n">maxNum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">more ...</a>
                 </div>
             </article>
@@ -220,25 +162,7 @@ predictor返回的shape就是检测出的68个特征点(face_landmarks)，我们
 <p>Python 将文本文件的内容读入可以操作的字符串变量非常容易。文件对象提供了三个“读”方法： <code>.read()</code>，<code>.readline()</code> 和 <code>.readlines()</code>。</p>
 <p><code>.read()</code>和 <code>.readlines()</code>都是读取整个文件的，对于大文件来说，一次性将大文件放到内容比较吃力，可以用 <code>.readline()</code>一行一行的读入处理。</p>
 <blockquote>
-<p>code 1:</p>
-</blockquote>
-<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">line</span>
-</pre></div>
-
-
-<blockquote>
-<p>code 2:</p>
-</blockquote>
-<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
-    <span class="k">print</span> <span class="n">line</span>
-</pre></div>
-
-
-<p>code 1，2都是一样的功能。
-f就是一个文件，<code>print f</code>会输出<code>&lt;open ...</code></p>
+<p>code ...</p></blockquote>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-read-file.html">more ...</a>
                 </div>
             </article>
@@ -249,18 +173,7 @@ f就是一个文件，<code>print f</code>会输出<code>&lt;open ...</code></p>
 <p>前一篇文章讲了如何在Windows下用Pelican搭建Github Blog, 为了使博客更美观，我们可以使用主题和插件。</p>
 <h2>主题</h2>
 <p>安装主题，<a href="http://www.pelicanthemes.com/">Pelican主题</a>有很多，我的主题是<a href="https://github.com/DandyDev/pelican-bootstrap3">pelican-bootstrap3</a>。添加主题非常简单，将主题下载到博客的目录下，在pelicanconf.py中添加</p>
-<div class="highlight"><pre><span class="nv">THEME</span> <span class="o">=</span> <span class="s1">&#39;path/to/the/theme&#39;</span>
-</pre></div>
-
-
-<p>路径是从pelicanconf.py到那个主题的相对路径。</p>
-<h2>安装第三方评论系统</h2>
-<p>第三方评论系统也有很多，如Disqus，多说，等等。我这里用了Disqus。在Disqus上申请一个账号，记住Shortname，在pelicanconf.py添加</p>
-<div class="highlight"><pre><span class="nv">DISQUS_SITENAME</span> <span class="o">=</span> Shortname
-</pre></div>
-
-
-<h2>添加插件</h2>
+<div class="highlight"><pre><span class="nv">THEME</span> <span class="o">=</span> <span class="s1">&#39;path/to/the/theme ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/github-blog-advantage.html">more ...</a>
                 </div>
             </article>
@@ -280,20 +193,7 @@ Markdown编辑器
 make</p>
 <h3>Python安装</h3>
 <p>可以直接到官网下载Python安装包，也可以安装Anaconda。
-Anaconda集成了Python很多常用的工具和库，如pip。</p>
-<h3>pip安装</h3>
-<p>pip是Python的一个包管理器，非常方便。如果安装Python的时候通过Anaconda安装就自带pip，否则须自行安装pip，网上搜吧。</p>
-<h3>Pelican Markdown安装</h3>
-<p>这是一个python库，用来将Markdown文件转换为Html文件需要的工具。安装方法如下： </p>
-<div class="highlight"><pre>pip install pelican
-pip install markdown
-</pre></div>
-
-
-<h3>Git安装</h3>
-<p>可以通过官网上的Github Desktop去安装，不过这样安装的话下载速度会比较慢。可以搜索Github for windows离线版之类的关键词搜到离线包，下载安装即可。</p>
-<h3>Markdown编辑器</h3>
-<p>Markdown编辑器有好多。windows下有Markdown Pad，MdCharm等等吧 ...</p>
+Anaconda集成了Python很多常用的工具和库，如pip ...</p>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/window-pelican-github.html">more ...</a>
                 </div>
             </article>

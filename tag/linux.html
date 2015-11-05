@@ -50,6 +50,9 @@ Honkee            </a>
                         <li >
                             <a href="http://honkeechan.github.io/category/blog.html">Blog</a>
                         </li>
+                        <li >
+                            <a href="http://honkeechan.github.io/category/diary.html">Diary</a>
+                        </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="http://honkeechan.github.io/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
@@ -69,13 +72,7 @@ Honkee            </a>
                 <div class="summary"><p>我电脑上装着3个系统，一个windows 7，一个Kali linux，一个Ubuntu 14.04。今天将Kali linux删了，系统就进不去了。百度了一阵才能将系统找回来。
 首先ls查看一下自己硬盘上的分区。因为我删了Kali linux的分区，所以现在剩下两个分区，这两个分区是Windows的C盘，Ubuntu的根目录.
 第二句是设置根目录，
-第三句是告诉grub，grub2在哪个位置
-第四句是加载normal.mod这个模块，这个模块就是正常启动的模块，里面的菜单项就是grub.cfg（在/boot/grub/grub.cfg）。
-第五句就可以出现正常启动的菜单了。</p>
-<div class="highlight"><pre>grub rescure&gt;ls
-<span class="o">(</span>hd0<span class="o">)(</span>hd0,msdos1<span class="o">)(</span>hd0,msdos2<span class="o">)</span> ...
-grub rescure&gt;set <span class="nv">root</span><span class="o">=(</span>hd0,msdos2<span class="o">)</span>
-grub rescure&gt;set <span class="nv">prefix ...</span></pre></div>
+第三句是告诉grub ...</p>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/Grub-Rescure.html">more ...</a>
                 </div>
             </article>

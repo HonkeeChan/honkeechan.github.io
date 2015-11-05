@@ -50,6 +50,9 @@ Honkee            </a>
                         <li >
                             <a href="http://honkeechan.github.io/category/blog.html">Blog</a>
                         </li>
+                        <li >
+                            <a href="http://honkeechan.github.io/category/diary.html">Diary</a>
+                        </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="http://honkeechan.github.io/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
@@ -73,15 +76,7 @@ Honkee            </a>
 <span class="k">def</span> <span class="nf">GetBarFrequency</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">barTotal</span><span class="p">,</span> <span class="n">minNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">maxNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
     <span class="c">#没有自定义最大最小值则用数组计算最大最小值</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">maxNum</span><span class="p">:</span>
-        <span class="n">maxNum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">minNum</span><span class="p">:</span>
-        <span class="n">minNum</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-    <span class="n">interval</span> <span class="o">=</span> <span class="p">(</span><span class="n">maxNum</span> <span class="o">-</span> <span class="n">minNum</span><span class="p">)</span> <span class="o">/</span> <span class="n">barTotal</span>
-    <span class="c">#定义多一个元素，后面就会发现它的作用</span>
-    <span class="n">barCntArr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">barTotal</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s">&#39;int&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
-        <span class="n">barIndex</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">item</span> <span class="o">-</span> <span class="n">minNum</span><span class="p">)</span> <span class="o">/</span> <span class="n">interval</span><span class="p">)</span>
-        <span class="n">barCntArr</span><span class="p">[</span><span class="n">barIndex ...</span></pre></div>
+        <span class="n">maxNum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">more ...</a>
                 </div>
             </article>

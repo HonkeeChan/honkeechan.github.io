@@ -14,13 +14,13 @@
 
         <meta name="author" content="honkee" />
         <meta name="keywords" content="python" />
-        <meta name="description" content="创建目录 os.mkdir( path [,mode] ) 作用：创建一个目录，可以是相对或者绝对路径，mode的默认模式是0777。 如果目录有多级，则创建最后一级。如果最后一级目录的上级目录有不存在的，则会抛出一个OSError。 os.makedirs( path [,mode] ) 作用： 创建递归的目录树，可以是相对或者绝对路径，mode的默认模式也是0777。 如果子目录创建失败或者已经存在，会抛出一个OSError的异常，Windows上Error 183即为目录已经存在的异常错误。如果path只有一级，与mkdir一样。 try: os.makedirs(path) except OSError as exc: if exc.errno == errno.EEXIST and os.path.isdir(path): pass else ..." />
+        <meta name="description" content="创建目录 os.mkdir( path [,mode] ) 作用：创建一个目录，可以是相对或者绝对路径，mode的默认模式是0777。 如果目录有多级，则创建最后一级。如果最后一级目录的上级目录有不存在的，则会抛出一个OSError。 os.makedirs( path [,mode] ) 作用： 创建递归的目录树 ..." />
 
         <meta property="og:site_name" content="Honkee" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Python小技巧"/>
         <meta property="og:url" content="http://honkeechan.github.io/articles/2015/python-tips.html"/>
-        <meta property="og:description" content="创建目录 os.mkdir( path [,mode] ) 作用：创建一个目录，可以是相对或者绝对路径，mode的默认模式是0777。 如果目录有多级，则创建最后一级。如果最后一级目录的上级目录有不存在的，则会抛出一个OSError。 os.makedirs( path [,mode] ) 作用： 创建递归的目录树，可以是相对或者绝对路径，mode的默认模式也是0777。 如果子目录创建失败或者已经存在，会抛出一个OSError的异常，Windows上Error 183即为目录已经存在的异常错误。如果path只有一级，与mkdir一样。 try: os.makedirs(path) except OSError as exc: if exc.errno == errno.EEXIST and os.path.isdir(path): pass else ..."/>
+        <meta property="og:description" content="创建目录 os.mkdir( path [,mode] ) 作用：创建一个目录，可以是相对或者绝对路径，mode的默认模式是0777。 如果目录有多级，则创建最后一级。如果最后一级目录的上级目录有不存在的，则会抛出一个OSError。 os.makedirs( path [,mode] ) 作用： 创建递归的目录树 ..."/>
         <meta property="article:published_time" content="2015-10-27" />
             <meta property="article:section" content="Blog" />
             <meta property="article:tag" content="python" />
@@ -55,6 +55,9 @@ Honkee            </a>
                         <li class="active">
                             <a href="http://honkeechan.github.io/category/blog.html">Blog</a>
                         </li>
+                        <li >
+                            <a href="http://honkeechan.github.io/category/diary.html">Diary</a>
+                        </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="http://honkeechan.github.io/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
@@ -86,7 +89,7 @@ Honkee            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-10-27T00:00:00+08:00"> 周二 27 十月 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-10-27T00:00:00+08:00"> 二 27 十月 2015</time>
     </span>
 
 
