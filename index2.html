@@ -67,6 +67,56 @@ Honkee            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/python-tips.html">Python小技巧</a></h2>
+                <div class="summary"><h2>创建目录</h2>
+<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span> <span class="n">path</span> <span class="p">[,</span><span class="n">mode</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+
+
+<p>作用：创建一个目录，可以是相对或者绝对路径，mode的默认模式是0777。
+如果目录有多级，则创建最后一级。如果最后一级目录的上级目录有不存在的，则会抛出一个<code>OSError</code>。</p>
+<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span> <span class="n">path</span> <span class="p">[,</span><span class="n">mode</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+
+
+<p>作用： 创建递归的目录树 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-tips.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/face-database-sumary.html">人脸数据库汇总</a></h2>
+                <div class="summary"><p>empty.</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/face-database-sumary.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">Python画柱状图</a></h2>
+                <div class="summary"><blockquote>
+<p>统计数组频数的方法</p>
+</blockquote>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">GetBarFrequency</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">barTotal</span><span class="p">,</span> <span class="n">minNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">maxNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+    <span class="c">#没有自定义最大最小值则用数组计算最大最小值</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">maxNum</span><span class="p">:</span>
+        <span class="n">maxNum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/python-read-file.html">Python读取文本</a></h2>
+                <div class="summary"><h2>读取文件</h2>
+<p>Python 将文本文件的内容读入可以操作的字符串变量非常容易。文件对象提供了三个“读”方法： <code>.read()</code>，<code>.readline()</code> 和 <code>.readlines()</code>。</p>
+<p><code>.read()</code>和 <code>.readlines()</code>都是读取整个文件的，对于大文件来说，一次性将大文件放到内容比较吃力，可以用 <code>.readline()</code>一行一行的读入处理。</p>
+<blockquote>
+<p>code ...</p></blockquote>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-read-file.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://honkeechan.github.io/articles/2015/github-blog-advantage.html">Windows下用Pelican搭建Github Blog高级篇</a></h2>
                 <div class="summary"><h2>前言</h2>
 <p>前一篇文章讲了如何在Windows下用Pelican搭建Github Blog, 为了使博客更美观，我们可以使用主题和插件。</p>

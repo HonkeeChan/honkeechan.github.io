@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>Hackathon - Honkee</title>
+    <title>Blog - Honkee</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
 
 
     <meta name="author" content="honkee" />
-    <meta name="keywords" content="Hackathon" />
+    <meta name="keywords" content="Blog" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Honkee" />
@@ -47,7 +47,7 @@ Honkee            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                        <li >
+                        <li class="active">
                             <a href="http://honkeechan.github.io/category/blog.html">Blog</a>
                         </li>
                         <li >
@@ -68,47 +68,71 @@ Honkee            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/VSAddIn-GetSetGenerator.html">VS插件-GetSet生成器</a></h2>
-                <div class="summary"><p>Java，C#都有GetSet生成器的方法，而C++却没有这样的工具，即使是现在是有插件做到相应的功能，但是
-这个要查一下！！！！！！
-现有的插件做得不够方便，所以我们就做了这个插件。
-现在来讲讲这个插件的具体思路。</p>
-<h2>从选择文本中选择变量生成其GetSet方法</h2>
-<h4>文本分割</h4>
-<p>先将选中的文本分行，我们可以以‘\r\n’来分割。然后对每行进行分割。
-我们一般定义变量都是每一行定义一个变量 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/VSAddIn-GetSetGenerator.html">more ...</a>
+                <h2><a href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">Python画柱状图</a></h2>
+                <div class="summary"><blockquote>
+<p>统计数组频数的方法</p>
+</blockquote>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">GetBarFrequency</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">barTotal</span><span class="p">,</span> <span class="n">minNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">maxNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+    <span class="c">#没有自定义最大最小值则用数组计算最大最小值</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">maxNum</span><span class="p">:</span>
+        <span class="n">maxNum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/experience-of-ms-hackathon.html">参加微软黑客马拉松经历</a></h2>
-                <div class="summary"><p>这次参加黑客马拉松，队伍一共三人，一个是微软俱乐部部长，另一个是一个女生。
-我来总结下我的工作吧。</p>
-<p>我们的作品是一个VS的插件，主要功能是为C++生成Get，Set方法。
-VS插件有两种，一个是AddIn，另一个是VSPackage。我使用的是前者，前者是一种旧的技术，微软推荐VS2008以后开发VS插件都使用VS SDK开发VSPackage，由于我看过C++做AddIn的，对AddIn有了一定的了解，所以我最后决定用C ...</p>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/experience-of-ms-hackathon.html">more ...</a>
+                <h2><a href="http://honkeechan.github.io/articles/2015/python-read-file.html">Python读取文本</a></h2>
+                <div class="summary"><h2>读取文件</h2>
+<p>Python 将文本文件的内容读入可以操作的字符串变量非常容易。文件对象提供了三个“读”方法： <code>.read()</code>，<code>.readline()</code> 和 <code>.readlines()</code>。</p>
+<p><code>.read()</code>和 <code>.readlines()</code>都是读取整个文件的，对于大文件来说，一次性将大文件放到内容比较吃力，可以用 <code>.readline()</code>一行一行的读入处理。</p>
+<blockquote>
+<p>code ...</p></blockquote>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-read-file.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/ideas of Hackathon.html">Hackathon的一些想法</a></h2>
-                <div class="summary"><h2>Hackathon介绍</h2>
-<p><a href="http://baike.baidu.com/link?url=mxk11rPCPSc6eswBKlv-_lI1hEt3gN0df-Nf7VYXXIonKkzBrEgfKCldJtDOC8_1LL9tqobEwCCFPYarpSwDqq">百度百科</a>
-我们想到几个idea</p>
-<h2>流量共享平台</h2>
-<p>队友idea：
-我们日常的流量可能不是每个月都能用完，如果我们可以建一个平台，在上面共享流量，然后获得积分，以后我们可以通过这些积分兑换平台上的流量。虽然并不知道这有什么卵用。。。。</p>
-<h2>手势控制俄罗斯方块</h2>
-<p>队友idea：
-这。。没什么好说的，就是通过肢体识别之类的去识别左移、右移、翻转就好了</p>
-<h2>教室课表</h2>
-<p>很多时候我们想听一些课程 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/ideas of Hackathon.html">more ...</a>
+                <h2><a href="http://honkeechan.github.io/articles/2015/github-blog-advantage.html">Windows下用Pelican搭建Github Blog高级篇</a></h2>
+                <div class="summary"><h2>前言</h2>
+<p>前一篇文章讲了如何在Windows下用Pelican搭建Github Blog, 为了使博客更美观，我们可以使用主题和插件。</p>
+<h2>主题</h2>
+<p>安装主题，<a href="http://www.pelicanthemes.com/">Pelican主题</a>有很多，我的主题是<a href="https://github.com/DandyDev/pelican-bootstrap3">pelican-bootstrap3</a>。添加主题非常简单，将主题下载到博客的目录下，在pelicanconf.py中添加</p>
+<div class="highlight"><pre><span class="nv">THEME</span> <span class="o">=</span> <span class="s1">&#39;path/to/the/theme ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/github-blog-advantage.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/window-pelican-github.html">Windows下用Pelican搭建Github Blog</a></h2>
+                <div class="summary"><h2>前言</h2>
+<p>网上也有好多关于在windows下用Pelican创建Blog的文章，但好多文章一个流程走下去，不说为什么那么做，那个命令是用来干嘛的，所以如果在那个流程中遇到什么问题就很难解决。</p>
+<h2>目录</h2>
+<h2>搭建需求</h2>
+<p>Python
+pip
+Pelican
+Markdown
+Git
+Markdown编辑器
+make</p>
+<h3>Python安装</h3>
+<p>可以直接到官网下载Python安装包，也可以安装Anaconda。
+Anaconda集成了Python很多常用的工具和库，如pip ...</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/window-pelican-github.html">more ...</a>
                 </div>
             </article>
             <hr/>
 
+        <ul class="pagination">
+                <li class="prev"><a href="http://honkeechan.github.io/category/blog.html">&laquo;</a>
+                </li>
+                    <li class=""><a
+                            href="http://honkeechan.github.io/category/blog.html">1</a></li>
+                    <li class="active"><a
+                            href="http://honkeechan.github.io/category/blog2.html">2</a></li>
+                <li class="next disabled"><a href="#">&raquo;</a></li>
+        </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

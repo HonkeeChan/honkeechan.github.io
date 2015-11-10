@@ -68,6 +68,54 @@ Honkee            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/the-art-of-thinking.html">《思考的艺术》</a></h2>
+                <div class="summary"><p>这段时间读了《思考的艺术》这本书，我读这本书的时候感觉不能认真的读下去，不知道是这本书讲得太罗嗦了，还是我定不下心来看这本书。
+我觉得这本书并没有封面上所说的这么完美：“批判性思维领域的‘圣经’！权威大师之作”。也许很多外国翻译过来的书讲得都是那么详细吧，反正他就是建议做他的那些课后习题，我是看了一点，然后觉得没什么兴趣看下去，所以我基本上就是遇到课后习题就跳过了。看书的内容的话，我也是看到感兴趣的小标题我才会认真的看看内容，否则就是大概的浏览一下标题，所以这本书看的时间也不是很长。</p>
+<p>但是这本书提到了一些做法 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/the-art-of-thinking.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/face-landmark-lib.html">Face Landmark Lib</a></h2>
+                <div class="summary"><p>最近在刷微博的时候发现了一个人脸特征点检测的库——CLM Framework，之前用过Dlib做人脸特征点检测，觉得准确率还是相当可观的。现在找到CLM Framework这个库，感觉准确率应该也不错，它还提供认的头部朝向，感觉应用它的地方会更广。</p>
+<h3>CLM Framework</h3>
+<p><strong>function:</strong> face landmark and head pose estimation</p>
+<p>C ...</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/face-landmark-lib.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/install-caffe-in-mac.html">Mac配置Caffe</a></h2>
+                <div class="summary"><p>今天跟着caffe项目的官网向导去安装caffe，前面安装依赖库的时候多次出现下载失败的情况，但是最后在早上再次安装依赖库，貌似每一句都安装成功了。可是到了编译的时候，显示着找不到blas相关字眼的错误信息。
+于是我就通过brew这个包管理器去安装blas。</p>
+<div class="highlight"><pre>brew install blas
+</pre></div>
+
+
+<p>brew提示错误信息说找不到blas，但提供了相关的包</p>
+<div class="highlight"><pre>pro:~ honkee<span class="nv">$ </span>brew install blas
+Error: No available ...</pre></div>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/install-caffe-in-mac.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/VSAddIn-GetSetGenerator.html">VS插件-GetSet生成器</a></h2>
+                <div class="summary"><p>Java，C#都有GetSet生成器的方法，而C++却没有这样的工具，即使是现在是有插件做到相应的功能，但是
+这个要查一下！！！！！！
+现有的插件做得不够方便，所以我们就做了这个插件。
+现在来讲讲这个插件的具体思路。</p>
+<h2>从选择文本中选择变量生成其GetSet方法</h2>
+<h4>文本分割</h4>
+<p>先将选中的文本分行，我们可以以‘\r\n’来分割。然后对每行进行分割。
+我们一般定义变量都是每一行定义一个变量 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/VSAddIn-GetSetGenerator.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://honkeechan.github.io/articles/2015/Grub-Rescure.html">Grub rescue引导修复</a></h2>
                 <div class="summary"><p>我电脑上装着3个系统，一个windows 7，一个Kali linux，一个Ubuntu 14.04。今天将Kali linux删了，系统就进不去了。百度了一阵才能将系统找回来。
 首先ls查看一下自己硬盘上的分区。因为我删了Kali linux的分区，所以现在剩下两个分区，这两个分区是Windows的C盘，Ubuntu的根目录.
@@ -142,63 +190,16 @@ Honkee            </a>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">Python画柱状图</a></h2>
-                <div class="summary"><blockquote>
-<p>统计数组频数的方法</p>
-</blockquote>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="k">def</span> <span class="nf">GetBarFrequency</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">barTotal</span><span class="p">,</span> <span class="n">minNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">maxNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
-    <span class="c">#没有自定义最大最小值则用数组计算最大最小值</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">maxNum</span><span class="p">:</span>
-        <span class="n">maxNum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/python-read-file.html">Python读取文本</a></h2>
-                <div class="summary"><h2>读取文件</h2>
-<p>Python 将文本文件的内容读入可以操作的字符串变量非常容易。文件对象提供了三个“读”方法： <code>.read()</code>，<code>.readline()</code> 和 <code>.readlines()</code>。</p>
-<p><code>.read()</code>和 <code>.readlines()</code>都是读取整个文件的，对于大文件来说，一次性将大文件放到内容比较吃力，可以用 <code>.readline()</code>一行一行的读入处理。</p>
-<blockquote>
-<p>code ...</p></blockquote>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-read-file.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/github-blog-advantage.html">Windows下用Pelican搭建Github Blog高级篇</a></h2>
-                <div class="summary"><h2>前言</h2>
-<p>前一篇文章讲了如何在Windows下用Pelican搭建Github Blog, 为了使博客更美观，我们可以使用主题和插件。</p>
-<h2>主题</h2>
-<p>安装主题，<a href="http://www.pelicanthemes.com/">Pelican主题</a>有很多，我的主题是<a href="https://github.com/DandyDev/pelican-bootstrap3">pelican-bootstrap3</a>。添加主题非常简单，将主题下载到博客的目录下，在pelicanconf.py中添加</p>
-<div class="highlight"><pre><span class="nv">THEME</span> <span class="o">=</span> <span class="s1">&#39;path/to/the/theme ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/github-blog-advantage.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/window-pelican-github.html">Windows下用Pelican搭建Github Blog</a></h2>
-                <div class="summary"><h2>前言</h2>
-<p>网上也有好多关于在windows下用Pelican创建Blog的文章，但好多文章一个流程走下去，不说为什么那么做，那个命令是用来干嘛的，所以如果在那个流程中遇到什么问题就很难解决。</p>
-<h2>目录</h2>
-<h2>搭建需求</h2>
-<p>Python
-pip
-Pelican
-Markdown
-Git
-Markdown编辑器
-make</p>
-<h3>Python安装</h3>
-<p>可以直接到官网下载Python安装包，也可以安装Anaconda。
-Anaconda集成了Python很多常用的工具和库，如pip ...</p>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/window-pelican-github.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
+        <ul class="pagination">
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a
+                            href="http://honkeechan.github.io/category/blog.html">1</a></li>
+                    <li class=""><a
+                            href="http://honkeechan.github.io/category/blog2.html">2</a></li>
+                <li class="next"><a
+                        href="http://honkeechan.github.io/category/blog2.html">&raquo;</a></li>
+        </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

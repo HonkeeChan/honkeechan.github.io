@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>参加微软黑客马拉松经历 - Honkee</title>
+    <title>Mac配置Caffe - Honkee</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,20 +10,21 @@
 
 
 
-<link rel="canonical" href="http://honkeechan.github.io/articles/2015/experience-of-ms-hackathon.html">
+<link rel="canonical" href="http://honkeechan.github.io/articles/2015/install-caffe-in-mac.html">
 
         <meta name="author" content="honkee" />
-        <meta name="keywords" content="Hackathon" />
-        <meta name="description" content="这次参加黑客马拉松，队伍一共三人，一个是微软俱乐部部长，另一个是一个女生。 我来总结下我的工作吧。 我们的作品是一个VS的插件，主要功能是为C++生成Get，Set方法。 VS插件有两种，一个是AddIn，另一个是VSPackage。我使用的是前者，前者是一种旧的技术，微软推荐VS2008以后开发VS插件都使用VS SDK开发VSPackage，由于我看过C++做AddIn的，对AddIn有了一定的了解，所以我最后决定用C ..." />
+        <meta name="keywords" content="caffe,mac" />
+        <meta name="description" content="今天跟着caffe项目的官网向导去安装caffe，前面安装依赖库的时候多次出现下载失败的情况，但是最后在早上再次安装依赖库，貌似每一句都安装成功了。可是到了编译的时候，显示着找不到blas相关字眼的错误信息。 于是我就通过brew这个包管理器去安装blas。 brew install blas brew提示错误信息说找不到blas，但提供了相关的包 pro:~ honkee$ brew install blas Error: No available ..." />
 
         <meta property="og:site_name" content="Honkee" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="参加微软黑客马拉松经历"/>
-        <meta property="og:url" content="http://honkeechan.github.io/articles/2015/experience-of-ms-hackathon.html"/>
-        <meta property="og:description" content="这次参加黑客马拉松，队伍一共三人，一个是微软俱乐部部长，另一个是一个女生。 我来总结下我的工作吧。 我们的作品是一个VS的插件，主要功能是为C++生成Get，Set方法。 VS插件有两种，一个是AddIn，另一个是VSPackage。我使用的是前者，前者是一种旧的技术，微软推荐VS2008以后开发VS插件都使用VS SDK开发VSPackage，由于我看过C++做AddIn的，对AddIn有了一定的了解，所以我最后决定用C ..."/>
-        <meta property="article:published_time" content="2015-11-03" />
-            <meta property="article:section" content="Diary" />
-            <meta property="article:tag" content="Hackathon" />
+        <meta property="og:title" content="Mac配置Caffe"/>
+        <meta property="og:url" content="http://honkeechan.github.io/articles/2015/install-caffe-in-mac.html"/>
+        <meta property="og:description" content="今天跟着caffe项目的官网向导去安装caffe，前面安装依赖库的时候多次出现下载失败的情况，但是最后在早上再次安装依赖库，貌似每一句都安装成功了。可是到了编译的时候，显示着找不到blas相关字眼的错误信息。 于是我就通过brew这个包管理器去安装blas。 brew install blas brew提示错误信息说找不到blas，但提供了相关的包 pro:~ honkee$ brew install blas Error: No available ..."/>
+        <meta property="article:published_time" content="2015-11-08" />
+            <meta property="article:section" content="Blog" />
+            <meta property="article:tag" content="caffe" />
+            <meta property="article:tag" content="mac" />
             <meta property="article:author" content="honkee" />
 
 
@@ -52,10 +53,10 @@ Honkee            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                        <li >
+                        <li class="active">
                             <a href="http://honkeechan.github.io/category/blog.html">Blog</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="http://honkeechan.github.io/category/diary.html">Diary</a>
                         </li>
             </ul>
@@ -76,10 +77,10 @@ Honkee            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://honkeechan.github.io/articles/2015/experience-of-ms-hackathon.html"
+                    <a href="http://honkeechan.github.io/articles/2015/install-caffe-in-mac.html"
                        rel="bookmark"
-                       title="Permalink to 参加微软黑客马拉松经历">
-                        参加微软黑客马拉松经历
+                       title="Permalink to Mac配置Caffe">
+                        Mac配置Caffe
                     </a>
                 </h1>
             </header>
@@ -89,41 +90,72 @@ Honkee            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-11-03T00:00:00+08:00"> 二 03 十一月 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-11-08T00:00:00+08:00"> 日 08 十一月 2015</time>
     </span>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://honkeechan.github.io/tag/hackathon.html">Hackathon</a>
+	<a href="http://honkeechan.github.io/tag/caffe.html">caffe</a>
+        /
+	<a href="http://honkeechan.github.io/tag/mac.html">mac</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>这次参加黑客马拉松，队伍一共三人，一个是微软俱乐部部长，另一个是一个女生。
-我来总结下我的工作吧。</p>
-<p>我们的作品是一个VS的插件，主要功能是为C++生成Get，Set方法。
-VS插件有两种，一个是AddIn，另一个是VSPackage。我使用的是前者，前者是一种旧的技术，微软推荐VS2008以后开发VS插件都使用VS SDK开发VSPackage，由于我看过C++做AddIn的，对AddIn有了一定的了解，所以我最后决定用C#写AddIn。</p>
-<p>因为部长说他擅长C++，我们发现C++也可以写VS的插件，所以我们一开始用的是C++作为开发语言。因为以前没做过VS插件，所以要找一些教程作为入门，于是我们找到了两份教程，感谢这两位Engineer，他们带我入了门吧。<a href="http://blog.csdn.net/clever101/article/details/8733799" title="第一篇">第一篇</a>，<a href="https://aigudao.net/category/windows/1/" title="第二篇">第二篇</a>
-但是由于对C++的COM编程不熟悉，又由于网上关于C++做VS插件的资料少之又少，在使用CComPtr智能指针遇上各种问题无解之后，我们决定改用C#。因为网上关于C#做VS插件的资料非常多。我花了一上午加一晚上的时间，就将这个插件的雏形写了出来。</p>
-<p>AddIn的主要类就是Connect，创建工程后，它有OnConnection，Exec，等等方法，因为只是入门，所以后面的方法我都没有去详细了解，竞赛要求在这段时间内做出一个Demo就可以了。</p>
-<blockquote>
-<p>OnConnection</p>
-</blockquote>
-<p>就是做一些初始化的东西，比如说添加一个右击菜单项，添加菜单栏之类的操作都是在这里面做的。</p>
-<blockquote>
-<p>Exec</p>
-</blockquote>
-<p>这个函数是在我们触发一个事件之后执行的，比如说单击了我们添加的那个右击菜单项。
-通过commandName这个参数来判断是触发了哪个点击。</p>
-<div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="n">commandName</span> <span class="p">==</span> <span class="s">&quot;MyAddin_csharp.Connect.MyAddin_csharp&quot;</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">handled</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
-    <span class="k">return</span><span class="p">;</span>
-<span class="p">}</span>
+                <p>今天跟着caffe项目的官网向导去安装caffe，前面安装依赖库的时候多次出现下载失败的情况，但是最后在早上再次安装依赖库，貌似每一句都安装成功了。可是到了编译的时候，显示着找不到blas相关字眼的错误信息。
+于是我就通过brew这个包管理器去安装blas。</p>
+<div class="highlight"><pre>brew install blas
 </pre></div>
 
 
-<p>既然知道了这些，我们在OnConnection函数里添加一个右击菜单来实现触发生成GetSet方法的触发器。然后在Exec函数里得到我们选中的文本，然后在做些字符串处理，提取出选中的变量类型，变量名字，我们就可以生成GetSet方法了，再添加到当前的Document中，就完成了！！！！</p>
+<p>brew提示错误信息说找不到blas，但提供了相关的包</p>
+<div class="highlight"><pre>pro:~ honkee<span class="nv">$ </span>brew install blas
+Error: No available formula with the name <span class="s2">&quot;blas&quot;</span> 
+<span class="o">==</span>&gt; Searching <span class="k">for</span> similarly named formulae...
+These similarly named formulae were found:
+homebrew/science/blasr                   homebrew/science/rmblast               
+homebrew/science/blast                   homebrew/science/samblaster            
+homebrew/science/clblas                  liblas                                 
+homebrew/science/jblas                   liblastfm                              
+homebrew/science/openblas <span class="o">(</span>installed<span class="o">)</span>    mp3blaster                             
+To install one of them, run <span class="o">(</span><span class="k">for</span> example<span class="o">)</span>:
+  brew install homebrew/science/blasr
+<span class="o">==</span>&gt; Searching taps...
+This formula was found in a tap:
+Caskroom/cask/blast2go
+To install it, run:
+  brew install Caskroom/cask/blast2go
+</pre></div>
+
+
+<p>我选择了openblas</p>
+<div class="highlight"><pre>brew install openblas
+</pre></div>
+
+
+<p>安装完openblas之后，需要去修改Makefile.config文件</p>
+<div class="highlight"><pre><span class="m">42</span> <span class="c"># BLAS choice:</span>
+<span class="m">43</span> <span class="c"># atlas for ATLAS (default)</span>
+<span class="m">44</span> <span class="c"># mkl for MKL </span>
+<span class="m">45</span> <span class="c"># open for OpenBlas</span>
+<span class="m">46</span> BLAS :<span class="o">=</span> open
+</pre></div>
+
+
+<div class="highlight"><pre><span class="m">53</span> <span class="c"># Homebrew puts openblas in a directory that is not on the standard search p    ath</span>
+<span class="m">54</span>  BLAS_INCLUDE :<span class="o">=</span> <span class="k">$(</span>shell brew --prefix openblas<span class="k">)</span>/include
+<span class="m">55</span>  BLAS_LIB :<span class="o">=</span> <span class="k">$(</span>shell brew --prefix openblas<span class="k">)</span>/lib
+</pre></div>
+
+
+<p>修改了这两处就可以去编译caffe了。
+修改这两处的目的是让编译caffe的时候找到blas，还有说明我们用的是openblas。
+如果没有说明我们用的是openblas会出现下述错误。</p>
+<div class="highlight"><pre>caffe ld: framework not found vecLib
+</pre></div>
+
+
+<p>如果没有说明我们的blas库安装地址，就会显示一些头文件包含错误，找不到blas之类的。</p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -135,8 +167,8 @@ VS插件有两种，一个是AddIn，另一个是VSPackage。我使用的是前�
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'honkeechan'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = 'experience-of-ms-hackathon';
-                var disqus_url = 'http://honkeechan.github.io/articles/2015/experience-of-ms-hackathon.html';
+                    var disqus_identifier = 'install-caffe-in-mac';
+                var disqus_url = 'http://honkeechan.github.io/articles/2015/install-caffe-in-mac.html';
 
             var disqus_config = function () {
                 this.language = "zh";
