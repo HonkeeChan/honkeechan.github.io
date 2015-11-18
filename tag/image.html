@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>Authors - Honkee</title>
+    <title>Image - Honkee</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,7 +11,8 @@
 
 
 
-        <meta name="author" content="honkee" />
+    <meta name="author" content="honkee" />
+    <meta name="keywords" content="Image" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Honkee" />
@@ -66,8 +67,23 @@ Honkee            </a>
     <div class="row">
         <div class="col-sm-9">
 
-    <h1>Authors on Honkee</h1>
-        <li><a href="http://honkeechan.github.io/author/honkee.html">honkee</a> (21)</li>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/opencv-process-image.html">OpenCV图片处理</a></h2>
+                <div class="summary"><h2>opencv读取图片</h2>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s">&#39;/path/to/image&#39;</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">()</span>
+</pre></div>
+
+
+<p>out:(heigh,width,color)</p>
+<h2>opencv截取图片</h2>
+<p>图片存储的第一维是图片的高度，第二维是图片的宽度，第三维是图片的颜色维度。所以我们去寻址的时候先对行寻址 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/opencv-process-image.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

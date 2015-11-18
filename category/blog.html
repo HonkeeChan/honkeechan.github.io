@@ -68,6 +68,79 @@ Honkee            </a>
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/Decision-Tree-AndrewMoore.html">决策树学习笔记</a></h2>
+                <div class="summary"><blockquote>
+<p>为什么需要数据挖掘</p>
+</blockquote>
+<p>通过观察概率表来发现数据之间的规律
+但是当数据的规模大了，属性多了，决定规律的属性多了，我们就有会得到很多概率表，发现数据之间的概率的困难程度大大地增高了。</p>
+<p>决定一个模式是不是有用的，我们用信息熵来度量</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/Decision-Tree-AndrewMoore.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/unbalance-learning.html">不平衡学习</a></h2>
+                <div class="summary"><h3>不平衡学习</h3>
+<blockquote>
+<p>定义</p>
+</blockquote>
+<p>顾名思义即我们的数据集样本类别极不均衡，以二分类问题为例，假设我们的数据集是$S$，数据集中的多数类为$S_maj$，少数类为$S_min$，通常情况下把多数类样本的比例为$100:1$,$1000:1$，甚至是$10000:1$这种情况下为不平衡数据，不平衡数据的学习即需要在如此分布不均匀的数据集中学习到有用的信息 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/unbalance-learning.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/python-thread.html">Python Thread</a></h2>
+                <div class="summary"><p>今天看到这篇文章，关于多线程编程的，感觉这篇文章讲得挺好的。<a href="http://segmentfault.com/a/1190000000414339#articleHeader3">文章在这里</a></p>
+<p>这篇文章一开始讲了一个生产者消费者的多线程的模型，生产者往队列里添加任务，消费者从队列里取出任务去执行。多线程就相当于多个消费者同时从这个队列里取出任务去完成。</p>
+<p>这篇文章讲到了用线程池</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">()</span>
+<span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">,</span> <span class="n">urls ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-thread.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/python-logging-lib.html">Python Logging模块</a></h2>
+                <div class="summary"><h3>logger的Level</h3>
+<div class="highlight"><pre><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">()</span>
+</pre></div>
+
+
+<p>设置logger的level，level有以下几个级别
+NOTSET &lt; DEBUG &lt; INFO &lt; WARNING &lt; ERROR &lt; CRITICAL
+如果把looger的级别设置为INFO， 那么小于INFO级别的日志都不输出， 大于等于INFO级别的日志都输出</p>
+<h3>logger的处理器</h3>
+<div class="highlight"><pre><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">()</span>
+</pre></div>
+
+
+<p>logger可以雇佣handler来帮它处理日志， handler主要有以下几种：</p>
+<ul>
+<li>StreamHandler ...</li></ul>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-logging-lib.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://honkeechan.github.io/articles/2015/opencv-process-image.html">OpenCV图片处理</a></h2>
+                <div class="summary"><h2>opencv读取图片</h2>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s">&#39;/path/to/image&#39;</span><span class="p">)</span>
+<span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">()</span>
+</pre></div>
+
+
+<p>out:(heigh,width,color)</p>
+<h2>opencv截取图片</h2>
+<p>图片存储的第一维是图片的高度，第二维是图片的宽度，第三维是图片的颜色维度。所以我们去寻址的时候先对行寻址 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/opencv-process-image.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://honkeechan.github.io/articles/2015/the-art-of-thinking.html">《思考的艺术》</a></h2>
                 <div class="summary"><p>这段时间读了《思考的艺术》这本书，我读这本书的时候感觉不能认真的读下去，不知道是这本书讲得太罗嗦了，还是我定不下心来看这本书。
 我觉得这本书并没有封面上所说的这么完美：“批判性思维领域的‘圣经’！权威大师之作”。也许很多外国翻译过来的书讲得都是那么详细吧，反正他就是建议做他的那些课后习题，我是看了一点，然后觉得没什么兴趣看下去，所以我基本上就是遇到课后习题就跳过了。看书的内容的话，我也是看到感兴趣的小标题我才会认真的看看内容，否则就是大概的浏览一下标题，所以这本书看的时间也不是很长。</p>
@@ -122,103 +195,6 @@ Error: No available ...</pre></div>
 第二句是设置根目录，
 第三句是告诉grub ...</p>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/Grub-Rescure.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/ideas of Hackathon.html">Hackathon的一些想法</a></h2>
-                <div class="summary"><h2>Hackathon介绍</h2>
-<p><a href="http://baike.baidu.com/link?url=mxk11rPCPSc6eswBKlv-_lI1hEt3gN0df-Nf7VYXXIonKkzBrEgfKCldJtDOC8_1LL9tqobEwCCFPYarpSwDqq">百度百科</a>
-我们想到几个idea</p>
-<h2>流量共享平台</h2>
-<p>队友idea：
-我们日常的流量可能不是每个月都能用完，如果我们可以建一个平台，在上面共享流量，然后获得积分，以后我们可以通过这些积分兑换平台上的流量。虽然并不知道这有什么卵用。。。。</p>
-<h2>手势控制俄罗斯方块</h2>
-<p>队友idea：
-这。。没什么好说的，就是通过肢体识别之类的去识别左移、右移、翻转就好了</p>
-<h2>教室课表</h2>
-<p>很多时候我们想听一些课程 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/ideas of Hackathon.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/python argparse.html">Python命令行编程库——argparse</a></h2>
-                <div class="summary"><p>这篇文章是基本上是Python Doc[https://docs.python.org/2/howto/argparse.html#id1]的翻译与总结</p>
-<h2>添加参数</h2>
-<h4>定位参数(position argument)</h4>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python argparse.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/dlib to face align using python.html">dlib to face align using python</a></h2>
-                <div class="summary"><h2>人脸特征点检测</h2>
-<div class="highlight"><pre><span class="n">predictor_path</span> <span class="o">=</span> <span class="s">&#39;path/to/shape_predictor_68_face_landmarks.dat&#39;</span>
-<span class="n">img</span> <span class="o">=</span> <span class="s">&#39;the/face/you/want/to/predict&#39;</span>
-
-<span class="n">detector</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">get_frontal_face_detector</span><span class="p">()</span>
-<span class="n">predictor</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">shape_predictor</span><span class="p">(</span><span class="n">predictor_path ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/dlib to face align using python.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/python-tips.html">Python小技巧</a></h2>
-                <div class="summary"><h2>创建目录</h2>
-<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span> <span class="n">path</span> <span class="p">[,</span><span class="n">mode</span><span class="p">]</span> <span class="p">)</span>
-</pre></div>
-
-
-<p>作用：创建一个目录，可以是相对或者绝对路径，mode的默认模式是0777。
-如果目录有多级，则创建最后一级。如果最后一级目录的上级目录有不存在的，则会抛出一个<code>OSError</code>。</p>
-<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span> <span class="n">path</span> <span class="p">[,</span><span class="n">mode</span><span class="p">]</span> <span class="p">)</span>
-</pre></div>
-
-
-<p>作用： 创建递归的目录树 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-tips.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/face-database-sumary.html">人脸数据库汇总</a></h2>
-                <div class="summary"><table>
-<thead>
-<tr>
-<th>数据库</th>
-<th>图片数量</th>
-<th>许可</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LFW</td>
-<td>13233</td>
-<td>无</td>
-<td>多姿态</td>
-</tr>
-<tr>
-<td>AR face DB</td>
-<td>126人</td>
-<td>免费申请</td>
-<td></td>
-</tr>
-<tr>
-<td>FRGC</td>
-<td>50000</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>FERET</td>
-<td>14126</td>
-<td>免费申请</td>
-<td>人物正、侧面 ...</td></tr></tbody></table>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/face-database-sumary.html">more ...</a>
                 </div>
             </article>
             <hr/>

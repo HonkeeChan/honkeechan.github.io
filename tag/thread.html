@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>Python - Honkee</title>
+    <title>Thread - Honkee</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
 
 
     <meta name="author" content="honkee" />
-    <meta name="keywords" content="Python" />
+    <meta name="keywords" content="Thread" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Honkee" />
@@ -76,94 +76,6 @@ Honkee            </a>
 <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">()</span>
 <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">,</span> <span class="n">urls ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-thread.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/python-logging-lib.html">Python Logging模块</a></h2>
-                <div class="summary"><h3>logger的Level</h3>
-<div class="highlight"><pre><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">()</span>
-</pre></div>
-
-
-<p>设置logger的level，level有以下几个级别
-NOTSET &lt; DEBUG &lt; INFO &lt; WARNING &lt; ERROR &lt; CRITICAL
-如果把looger的级别设置为INFO， 那么小于INFO级别的日志都不输出， 大于等于INFO级别的日志都输出</p>
-<h3>logger的处理器</h3>
-<div class="highlight"><pre><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">()</span>
-</pre></div>
-
-
-<p>logger可以雇佣handler来帮它处理日志， handler主要有以下几种：</p>
-<ul>
-<li>StreamHandler ...</li></ul>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-logging-lib.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/python argparse.html">Python命令行编程库——argparse</a></h2>
-                <div class="summary"><p>这篇文章是基本上是Python Doc[https://docs.python.org/2/howto/argparse.html#id1]的翻译与总结</p>
-<h2>添加参数</h2>
-<h4>定位参数(position argument)</h4>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python argparse.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/dlib to face align using python.html">dlib to face align using python</a></h2>
-                <div class="summary"><h2>人脸特征点检测</h2>
-<div class="highlight"><pre><span class="n">predictor_path</span> <span class="o">=</span> <span class="s">&#39;path/to/shape_predictor_68_face_landmarks.dat&#39;</span>
-<span class="n">img</span> <span class="o">=</span> <span class="s">&#39;the/face/you/want/to/predict&#39;</span>
-
-<span class="n">detector</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">get_frontal_face_detector</span><span class="p">()</span>
-<span class="n">predictor</span> <span class="o">=</span> <span class="n">dlib</span><span class="o">.</span><span class="n">shape_predictor</span><span class="p">(</span><span class="n">predictor_path ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/dlib to face align using python.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/python-tips.html">Python小技巧</a></h2>
-                <div class="summary"><h2>创建目录</h2>
-<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span> <span class="n">path</span> <span class="p">[,</span><span class="n">mode</span><span class="p">]</span> <span class="p">)</span>
-</pre></div>
-
-
-<p>作用：创建一个目录，可以是相对或者绝对路径，mode的默认模式是0777。
-如果目录有多级，则创建最后一级。如果最后一级目录的上级目录有不存在的，则会抛出一个<code>OSError</code>。</p>
-<div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span> <span class="n">path</span> <span class="p">[,</span><span class="n">mode</span><span class="p">]</span> <span class="p">)</span>
-</pre></div>
-
-
-<p>作用： 创建递归的目录树 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-tips.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">Python画柱状图</a></h2>
-                <div class="summary"><blockquote>
-<p>统计数组频数的方法</p>
-</blockquote>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="k">def</span> <span class="nf">GetBarFrequency</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">barTotal</span><span class="p">,</span> <span class="n">minNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">maxNum</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
-    <span class="c">#没有自定义最大最小值则用数组计算最大最小值</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">maxNum</span><span class="p">:</span>
-        <span class="n">maxNum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">arr ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-plot-histogram.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://honkeechan.github.io/articles/2015/python-read-file.html">Python读取文本</a></h2>
-                <div class="summary"><h2>读取文件</h2>
-<p>Python 将文本文件的内容读入可以操作的字符串变量非常容易。文件对象提供了三个“读”方法： <code>.read()</code>，<code>.readline()</code> 和 <code>.readlines()</code>。</p>
-<p><code>.read()</code>和 <code>.readlines()</code>都是读取整个文件的，对于大文件来说，一次性将大文件放到内容比较吃力，可以用 <code>.readline()</code>一行一行的读入处理。</p>
-<blockquote>
-<p>code ...</p></blockquote>
-                    <a class="btn btn-default btn-xs" href="http://honkeechan.github.io/articles/2015/python-read-file.html">more ...</a>
                 </div>
             </article>
             <hr/>
