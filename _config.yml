@@ -1,0 +1,24 @@
+# 陈洪健的博客
+title: 陈洪健的博客
+email: honkeechan@gmail.com
+description: >-
+  学习笔记 · 旅游规划 · 技术随笔
+baseurl: ""
+url: "https://honkeechan.github.io"
+theme: minima
+
+# 导航
+header_pages:
+  - travel/index.md
+  - about.md
+
+# 时区
+timezone: Asia/Shanghai
+
+# 默认布局
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      author: 陈洪健

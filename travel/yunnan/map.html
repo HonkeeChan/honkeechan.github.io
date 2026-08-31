@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云南酒店&景点地图</title>
+<link rel="stylesheet" href="map/leaflet.css">
+<style>
+  body { margin:0; font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+  #map { height: 100vh; width: 100%; }
+  #topbar { position:fixed; top:10px; left:50%; transform:translateX(-50%); z-index:1000;
+    background:#fff; padding:8px 16px; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,.2);
+    display:flex; gap:10px; align-items:center; font-size:14px; }
+  #topbar button { border:none; padding:6px 14px; border-radius:14px; cursor:pointer; font-size:13px; }
+  #ruler-btn { background:#f0f0f0; }
+  #ruler-dist { font-weight:bold; color:#e01a1a; min-width:120px; }
+  #ruler-hint { color:#888; font-size:12px; }
+  .legend { position:fixed; bottom:20px; left:10px; z-index:1000; background:#fff; padding:10px;
+    border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.2); font-size:12px; line-height:1.8; }
+</style></head>
+<body>
+<div id="topbar">
+  <b>云南 · 酒店&景点地图</b>
+  <button id="ruler-btn" onclick="toggleRuler()">📏 测距</button>
+  <span id="ruler-dist"></span><span id="ruler-hint"></span>
+</div>
+<div class="legend">
+  <b>图例</b><br>
+  <span style="color:#1a7de0">●</span> 3钻酒店 &nbsp; <span style="color:#ff7a1a">●</span> 4钻酒店<br>
+  <span style="color:#0a9c6e">★</span> 景点<br>
+  <span style="color:#999">坐标：高德精确定位</span>
+</div>
+<div id="map"></div>
+<script src="map/leaflet.js"></script>
+<script>
+var map = L.map('map').setView([26.0, 100.3], 8);
+// 高德瓦片（免key）
+L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}', {
+  attribution: '© 高德地图', maxZoom: 18, subdomains: ['1','2','3','4']
+}).addTo(map);
+var starIcon = L.divIcon({html:'<div style="font-size:18px;color:#0a9c6e;text-shadow:0 0 3px #fff">★</div>',
+  className:'', iconSize:[20,20], iconAnchor:[10,10]});
+
+var L_大理_layer = L.layerGroup();
+L.circleMarker([25.616743,100.272266], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>大理苍洱雅园海景酒店（大理高铁站洱海公园店）</b><br>大理 3钻<br>评分: 4.7 | 国庆价: ¥244起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.625279,100.274222], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>大理市品栖客栈（洱海公园店）</b><br>大理 3钻<br>评分: 4.8 | 国庆价: ¥292起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.624768,100.278314], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>大理东庭酒店（大理高铁北站洱海店）</b><br>大理 3钻<br>评分: 4.9 | 国庆价: ¥292起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.616925,100.282225], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>漫隐花园酒店（东庭万达店）</b><br>大理 3钻<br>评分: — | 国庆价: —<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.583427,100.222089], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>悦泊·欢舍设计师艺术酒店（大理高铁站泰业国际广场店）</b><br>大理 3钻<br>评分: 4.7 | 国庆价: ¥521起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.678913,100.167948], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>大理怡馨小苑（大理古城南门店）</b><br>大理 3钻<br>评分: 4.9 | 国庆价: ¥432起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.591655,100.234278], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>大理希糖·Live设计酒店（大理洱海公园高铁站店）</b><br>大理 3钻<br>评分: 4.7 | 国庆价: ¥254起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.585671,100.231946], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>晴水雲天酒店（大理高铁站昆百大泰业城店）</b><br>大理 3钻<br>评分: 4.7 | 国庆价: ¥252起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.607883,100.282291], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>大理满江鸿康养假日酒店</b><br>大理 4钻<br>评分: 4.8 | 国庆价: ¥455起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.595025,100.233498], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>大理和庄精品酒店（洱海公园兴盛大桥店）</b><br>大理 4钻<br>评分: 4.7 | 国庆价: ¥318起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.621751,100.281359], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>大理理途酒店（洱海站店）</b><br>大理 4钻<br>评分: 4.6 | 国庆价: ¥520起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.596982,100.257021], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>景岸逸林酒店（大理高铁站洱海公园店）</b><br>大理 4钻<br>评分: 4.7 | 国庆价: ¥212起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.616433,100.268349], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>大理洱海之门休闲酒店</b><br>大理 4钻<br>评分: 4.6 | 国庆价: ¥277起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.610846,100.267939], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>大理洱海龙湾假日酒店</b><br>大理 4钻<br>评分: 4.9 | 国庆价: ¥571起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.616743,100.271669], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>大理苍海觅踪海景度假康养酒店</b><br>大理 4钻<br>评分: 4.5 | 国庆价: ¥491起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.701858,100.164246], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>大理观季美宿</b><br>大理 4钻<br>评分: 4.9 | 国庆价: ¥573起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.615619,100.269871], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>大理金沙半岛海景养生酒店</b><br>大理 4钻<br>评分: 4.7 | 国庆价: ¥277起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.598408,100.26405], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>维也纳酒店（大理洱海店）</b><br>大理 4钻<br>评分: 4.8 | 国庆价: ¥249起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.circleMarker([25.59566,100.239226], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>大理高铁站洱海公园亚朵酒店</b><br>大理 4钻<br>评分: 4.8 | 国庆价: ¥510起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_大理_layer);
+L.marker([25.694836,100.164], {icon: starIcon})
+  .bindPopup('<b>大理古城</b><br>大理 · 景点').addTo(L_大理_layer);
+L.marker([25.603041,100.247329], {icon: starIcon})
+  .bindPopup('<b>洱海</b><br>大理 · 景点').addTo(L_大理_layer);
+L.marker([25.85295,100.131582], {icon: starIcon})
+  .bindPopup('<b>喜洲古镇</b><br>大理 · 景点').addTo(L_大理_layer);
+L.marker([26.315721,99.849895], {icon: starIcon})
+  .bindPopup('<b>沙溪古镇</b><br>大理 · 景点').addTo(L_大理_layer);
+L.marker([25.704129,100.143044], {icon: starIcon})
+  .bindPopup('<b>崇圣寺三塔</b><br>大理 · 景点').addTo(L_大理_layer);
+L.marker([25.908323,100.194322], {icon: starIcon})
+  .bindPopup('<b>双廊古镇</b><br>大理 · 景点').addTo(L_大理_layer);
+L.marker([25.69683,100.207278], {icon: starIcon})
+  .bindPopup('<b>龙龛码头</b><br>大理 · 景点').addTo(L_大理_layer);
+L.marker([25.766857,100.150486], {icon: starIcon})
+  .bindPopup('<b>磻溪村S湾</b><br>大理 · 景点').addTo(L_大理_layer);
+L_大理_layer.addTo(map);
+
+var L_丽江_layer = L.layerGroup();
+L.circleMarker([26.885259,100.226964], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>臻选之家度假酒店（丽江古城大水车店）</b><br>丽江 3钻<br>评分: 4.8 | 国庆价: —<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.830482,100.218053], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>高球之家酒店（丽江嘉和店）</b><br>丽江 3钻<br>评分: — | 国庆价: —<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.870714,100.219495], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>丽江静宁祉悠客栈</b><br>丽江 3钻<br>评分: 5.0 | 国庆价: ¥256起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.866827,100.225993], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>金康轻奢美宿酒店</b><br>丽江 3钻<br>评分: 4.8 | 国庆价: ¥239起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.875066,100.21841], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>阳春白雪大酒店</b><br>丽江 3钻<br>评分: — | 国庆价: —<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.877072,100.274949], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>丽呈别院·慢柏（丽江黑龙潭公园店）</b><br>丽江 3钻<br>评分: 4.8 | 国庆价: ¥178起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.873415,100.221056], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>丽江裕峻酒店</b><br>丽江 3钻<br>评分: 4.8 | 国庆价: ¥398起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.870821,100.237954], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>丽江木石缘客栈</b><br>丽江 3钻<br>评分: 4.8 | 国庆价: ¥248起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.865479,100.240401], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>丽江汉邦豪苑酒店</b><br>丽江 3钻<br>评分: 4.9 | 国庆价: ¥261起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.875212,100.242553], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>千里走单骑兰庭苑客栈</b><br>丽江 3钻<br>评分: 4.7 | 国庆价: ¥198起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.871375,100.228453], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>丽江家四季客栈</b><br>丽江 3钻<br>评分: 5.0 | 国庆价: ¥528起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.830482,100.218053], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>高球之家酒店（丽江千古情店）</b><br>丽江 4钻<br>评分: — | 国庆价: —<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.870012,100.25072], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>八叶·ORI设计师度假酒店（丽江古城店）</b><br>丽江 4钻<br>评分: 4.9 | 国庆价: ¥388起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.898504,100.22101], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>丽江途景雅阁度假酒店</b><br>丽江 4钻<br>评分: 5.0 | 国庆价: ¥380起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.865907,100.226956], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>丽江·和顺·Luma·雪域冰泊·空中花园设计师酒店（丽江古城店）</b><br>丽江 4钻<br>评分: 4.8 | 国庆价: ¥440起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.868856,100.24165], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>丽江古城南门金府大饭店</b><br>丽江 4钻<br>评分: 4.7 | 国庆价: ¥498起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.851732,100.232929], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>景澜云漫酒店（丽江古城祥和商业广场店）</b><br>丽江 4钻<br>评分: 4.8 | 国庆价: ¥292起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.877415,100.237572], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>丽江龙景轩精品度假客栈</b><br>丽江 4钻<br>评分: 4.9 | 国庆价: ¥526起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.88504,100.219319], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>丽江之春雪境设计师酒店（丽江古城店）</b><br>丽江 4钻<br>评分: 4.7 | 国庆价: ¥261起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.circleMarker([26.885428,100.227373], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>宜尚PLUS酒店（丽江古城店）</b><br>丽江 4钻<br>评分: 4.7 | 国庆价: ¥715起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_丽江_layer);
+L.marker([26.870507,100.235517], {icon: starIcon})
+  .bindPopup('<b>丽江古城</b><br>丽江 · 景点').addTo(L_丽江_layer);
+L.marker([26.9196,100.205679], {icon: starIcon})
+  .bindPopup('<b>束河古镇</b><br>丽江 · 景点').addTo(L_丽江_layer);
+L.marker([26.953303,100.216933], {icon: starIcon})
+  .bindPopup('<b>白沙古镇</b><br>丽江 · 景点').addTo(L_丽江_layer);
+L.marker([27.009884,100.213328], {icon: starIcon})
+  .bindPopup('<b>玉湖村</b><br>丽江 · 景点').addTo(L_丽江_layer);
+L.marker([26.883147,100.233427], {icon: starIcon})
+  .bindPopup('<b>黑龙潭公园</b><br>丽江 · 景点').addTo(L_丽江_layer);
+L.marker([27.098052,100.258558], {icon: starIcon})
+  .bindPopup('<b>玉龙雪山</b><br>丽江 · 景点').addTo(L_丽江_layer);
+L.marker([27.124436,100.245886], {icon: starIcon})
+  .bindPopup('<b>蓝月谷</b><br>丽江 · 景点').addTo(L_丽江_layer);
+L.marker([27.006035,100.261078], {icon: starIcon})
+  .bindPopup('<b>东巴谷</b><br>丽江 · 景点').addTo(L_丽江_layer);
+L_丽江_layer.addTo(map);
+
+var L_香格里拉_layer = L.layerGroup();
+L.circleMarker([27.826902,99.70173], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>香格里拉萨龙大酒店</b><br>香格里拉 3钻<br>评分: 4.7 | 国庆价: ¥276起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_香格里拉_layer);
+L.circleMarker([27.830232,99.713731], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>香格里拉楚玥酒店</b><br>香格里拉 3钻<br>评分: 4.8 | 国庆价: ¥748起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_香格里拉_layer);
+L.circleMarker([27.830765,99.715301], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>华辰大酒店（香格里拉店）</b><br>香格里拉 4钻<br>评分: — | 国庆价: —<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_香格里拉_layer);
+L.circleMarker([27.813766,99.70295], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>香格里拉紫微酒店（独克宗古城店）</b><br>香格里拉 4钻<br>评分: 4.5 | 国庆价: ¥370起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_香格里拉_layer);
+L.circleMarker([27.813675,99.703225], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>香格里拉天魁酒店（独克宗古城店）</b><br>香格里拉 4钻<br>评分: 4.5 | 国庆价: ¥349起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_香格里拉_layer);
+L.circleMarker([27.827738,99.707629], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>香格里拉日月星城大酒店</b><br>香格里拉 4钻<br>评分: 4.5 | 国庆价: ¥399起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_香格里拉_layer);
+L.circleMarker([27.818512,99.716598], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>丽呈睿轩酒店（香格里拉独克宗古城店）</b><br>香格里拉 4钻<br>评分: 4.9 | 国庆价: ¥336起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_香格里拉_layer);
+L.circleMarker([27.814869,99.704669], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>嘉悦世纪大酒店（独克宗古城大佛寺转经筒店）</b><br>香格里拉 4钻<br>评分: 4.7 | 国庆价: ¥468起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_香格里拉_layer);
+L.circleMarker([27.795147,99.709472], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>香格里拉拉洛风温德姆酒店（独克宗古城店）</b><br>香格里拉 4钻<br>评分: 4.6 | 国庆价: ¥394起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_香格里拉_layer);
+L.marker([27.810532,99.708514], {icon: starIcon})
+  .bindPopup('<b>独克宗古城</b><br>香格里拉 · 景点').addTo(L_香格里拉_layer);
+L.marker([27.859991,99.705525], {icon: starIcon})
+  .bindPopup('<b>松赞林寺</b><br>香格里拉 · 景点').addTo(L_香格里拉_layer);
+L.marker([27.824387,99.646379], {icon: starIcon})
+  .bindPopup('<b>纳帕海</b><br>香格里拉 · 景点').addTo(L_香格里拉_layer);
+L_香格里拉_layer.addTo(map);
+
+var L_昆明_layer = L.layerGroup();
+L.circleMarker([24.991671,102.736518], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>兰翔序智选酒店（巫家坝地铁站店）</b><br>昆明 3钻<br>评分: 4.7 | 国庆价: ¥293起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([25.005927,102.751469], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>云宿·Eden观景森林酒店（融城金阶官渡森林公园店）</b><br>昆明 3钻<br>评分: 4.8 | 国庆价: ¥294起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([25.074441,102.649276], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>丽悦酒店（昆明高新西城时代店）</b><br>昆明 3钻<br>评分: 4.8 | 国庆价: ¥174起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([25.032805,102.637371], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>众得酒店（昆明西部客运站地铁站店）</b><br>昆明 3钻<br>评分: 4.6 | 国庆价: ¥143起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([25.022724,102.705623], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>艺龙壹棠酒店（昆明火车站大悦城中心店）</b><br>昆明 3钻<br>评分: 4.6 | 国庆价: ¥263起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([25.084032,102.758292], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>昆明鑫诚大酒店</b><br>昆明 3钻<br>评分: — | 国庆价: —<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([24.982291,102.76129], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>高原明珠大酒店（昆明火车站双桥店）</b><br>昆明 4钻<br>评分: — | 国庆价: —<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([24.965734,102.794758], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>昆明经开区美吟温德姆酒店</b><br>昆明 4钻<br>评分: 4.7 | 国庆价: ¥202起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([25.045804,102.672513], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>龚馆（昆明中心人民西路店）</b><br>昆明 4钻<br>评分: 4.8 | 国庆价: ¥721起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([24.855334,102.836887], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>美豪丽致酒店（昆明西山区政府碧鸡公园店）</b><br>昆明 4钻<br>评分: 4.7 | 国庆价: ¥314起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([24.955827,102.749147], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>昆明官渡古镇麦客达温德姆酒店</b><br>昆明 4钻<br>评分: 4.7 | 国庆价: ¥325起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([24.989575,102.743905], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>戴斯精选温德姆酒店（昆明滇池会展中心店）</b><br>昆明 4钻<br>评分: 4.7 | 国庆价: ¥323起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([24.995128,102.744117], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>昆明火车站南希尔顿花园酒店</b><br>昆明 4钻<br>评分: 4.8 | 国庆价: ¥504起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L.circleMarker([24.990139,102.741884], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>昆明云锦诺富特酒店（昆明站店）</b><br>昆明 4钻<br>评分: 4.5 | 国庆价: ¥397起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_昆明_layer);
+L_昆明_layer.addTo(map);
+
+var L_泸沽湖_layer = L.layerGroup();
+L.circleMarker([27.736142,100.759967], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>来野·泸沽湖湖景美宿</b><br>泸沽湖 3钻<br>评分: 4.8 | 国庆价: ¥283起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_泸沽湖_layer);
+L.circleMarker([27.73702,100.76057], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>泸沽湖集美·度若无云客栈</b><br>泸沽湖 3钻<br>评分: 4.8 | 国庆价: ¥201起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_泸沽湖_layer);
+L.circleMarker([27.740955,100.773117], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>泸沽湖圣山湖云精品湖景客栈</b><br>泸沽湖 3钻<br>评分: 4.8 | 国庆价: ¥223起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_泸沽湖_layer);
+L.circleMarker([27.668847,100.818925], {radius:7, color:'#1a7de0', fillOpacity:0.85})
+  .bindPopup('<b>泸沽湖木茗·云隐民宿</b><br>泸沽湖 3钻<br>评分: 4.8 | 国庆价: ¥211起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_泸沽湖_layer);
+L.circleMarker([27.667123,100.799872], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>泸沽湖阅悦云里客栈</b><br>泸沽湖 4钻<br>评分: 4.8 | 国庆价: ¥376起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_泸沽湖_layer);
+L.circleMarker([27.670712,100.820057], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>泸沽湖云蓝湖畔湖景民宿（大洛水码头店）</b><br>泸沽湖 4钻<br>评分: 4.7 | 国庆价: ¥395起<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_泸沽湖_layer);
+L.circleMarker([27.669934,100.817635], {radius:7, color:'#ff7a1a', fillOpacity:0.85})
+  .bindPopup('<b>泸沽湖星畔水奢海景度假酒店</b><br>泸沽湖 4钻<br>评分: — | 国庆价: —<br><span style=&#34;color:#999;font-size:11px&#34;>坐标: 精确</span>').addTo(L_泸沽湖_layer);
+L_泸沽湖_layer.addTo(map);
+
+var overlayMaps = {
+  '大理（19酒店 + 8景点）': L_大理_layer,
+  '丽江（20酒店 + 8景点）': L_丽江_layer,
+  '香格里拉（9酒店 + 3景点）': L_香格里拉_layer,
+  '昆明（14酒店 + 0景点）': L_昆明_layer,
+  '泸沽湖（7酒店 + 0景点）': L_泸沽湖_layer,
+};
+L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
+
+let rulerMode = false, rulerPoints = [], rulerLine = null, rulerMarkers = [];
+function toggleRuler() {
+    rulerMode = !rulerMode;
+    document.getElementById('ruler-btn').style.background = rulerMode ? '#ff7a1a' : '#f0f0f0';
+    document.getElementById('ruler-hint').textContent = rulerMode ? '🟢 测距中：点击地图加点，双击结束' : '';
+    if (!rulerMode) clearRuler();
+}
+function clearRuler() {
+    rulerPoints = [];
+    if (rulerLine) { map.removeLayer(rulerLine); rulerLine = null; }
+    rulerMarkers.forEach(m => map.removeLayer(m)); rulerMarkers = [];
+    document.getElementById('ruler-dist').textContent = '';
+}
+function haversine(a, b) {
+    const R = 6371, dLat = (b[0]-a[0])*Math.PI/180, dLon = (b[1]-a[1])*Math.PI/180;
+    const x = Math.sin(dLat/2)**2 + Math.cos(a[0]*Math.PI/180)*Math.cos(b[0]*Math.PI/180)*Math.sin(dLon/2)**2;
+    return 2*R*Math.asin(Math.sqrt(x));
+}
+map.on('click', e => {
+    if (!rulerMode) return;
+    rulerPoints.push([e.latlng.lat, e.latlng.lng]);
+    const m = L.circleMarker(e.latlng, {radius:4, color:'#ff0000'}).addTo(map);
+    rulerMarkers.push(m);
+    if (rulerPoints.length >= 2) {
+        if (rulerLine) map.removeLayer(rulerLine);
+        rulerLine = L.polyline(rulerPoints, {color:'#ff0000', dashArray:'6 4'}).addTo(map);
+        let total = 0;
+        for (let i=1; i<rulerPoints.length; i++) total += haversine(rulerPoints[i-1], rulerPoints[i]);
+        document.getElementById('ruler-dist').textContent = `总距离: ${total.toFixed(1)} 公里`;
+    }
+});
+
+</script></body></html>
