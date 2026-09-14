@@ -15,6 +15,15 @@ header_pages:
 # 时区
 timezone: Asia/Shanghai
 
+# Markdown 引擎
+# ⚠️ 必须显式开启 GFM：kramdown 默认 input 是 kramdown，不会自动把裸 URL 转成可点链接
+# （2026-09-14 修复：日报的原文链接在页面上是死文本，无法跳转）
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+
 # 默认布局
 defaults:
   - scope:
