@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>槟城 3 天行程地图（10/3–10/5）</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  html,body{margin:0;padding:0;height:100%;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif}
+  #map{height:100%;width:100%}
+  .title{position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(255,255,255,.95);
+    padding:8px 16px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.18);font-weight:600;font-size:15px;white-space:nowrap}
+  .legend{position:absolute;bottom:24px;left:10px;z-index:1000;background:rgba(255,255,255,.95);padding:10px 12px;
+    border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.18);font-size:13px;line-height:1.75}
+  .legend b{font-size:13px} .dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+</style></head><body>
+<div class="title">🗺️ 槟城 3 天行程 · 10/3–10/5（宿 Jazz Hotel）</div>
+<div class="legend">
+  <b>图例</b><br>
+  <span class="dot" style="background:#2b6cb0"></span>住宿 Jazz Hotel<br>
+  <span class="dot" style="background:#2f9e44"></span>10/3 世遗+美食<br>
+  <span class="dot" style="background:#e8a020"></span>10/4 国家公园徒步<br>
+  <span class="dot" style="background:#e03131"></span>10/5 升旗山+人文+机场<br>
+  <span style="color:#888">虚线 = 当日动线</span>
+</div>
+<div id="map"></div>
+<script>
+var map = L.map('map').setView([5.4000, 100.2950], 12);
+var carto = L.tileLayer('https://a.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+  {maxZoom:19, attribution:'&copy; OpenStreetMap &copy; CARTO'});
+var osmL = L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png',
+  {maxZoom:19, attribution:'&copy; OpenStreetMap contributors, HOT'});
+carto.addTo(map);
+var dayLayer = {0:L.layerGroup(),1:L.layerGroup(),2:L.layerGroup(),3:L.layerGroup()};
+var routeLayer = {1:L.layerGroup(),2:L.layerGroup(),3:L.layerGroup()};
+L.circleMarker([5.458013,100.309834], {radius:8, color:'#fff', weight:2, fillColor:'#2b6cb0', fillOpacity:1}) .bindPopup('<b>Jazz Hotel Penang</b><br><span style=&#34;color:#666&#34;>住宿</span>') .bindTooltip('Jazz Hotel Penang', {direction:'top', offset:[0,-6]}).addTo(dayLayer[0]);
+L.circleMarker([5.411966,100.340031], {radius:8, color:'#fff', weight:2, fillColor:'#2f9e44', fillOpacity:1}) .bindPopup('<b>姓周桥 Chew Jetty</b><br><span style=&#34;color:#666&#34;>10/3 世遗美食</span>') .bindTooltip('姓周桥 Chew Jetty', {direction:'top', offset:[0,-6]}).addTo(dayLayer[1]);
+L.circleMarker([5.415675,100.33594], {radius:8, color:'#fff', weight:2, fillColor:'#2f9e44', fillOpacity:1}) .bindPopup('<b>亚美尼亚街壁画街</b><br><span style=&#34;color:#666&#34;>10/3 世遗美食</span>') .bindTooltip('亚美尼亚街壁画街', {direction:'top', offset:[0,-6]}).addTo(dayLayer[1]);
+L.circleMarker([5.410773,100.335427], {radius:8, color:'#fff', weight:2, fillColor:'#2f9e44', fillOpacity:1}) .bindPopup('<b>姓杨桥 Yeoh Jetty</b><br><span style=&#34;color:#666&#34;>10/3 世遗美食</span>') .bindTooltip('姓杨桥 Yeoh Jetty', {direction:'top', offset:[0,-6]}).addTo(dayLayer[1]);
+L.circleMarker([5.417792,100.341128], {radius:8, color:'#fff', weight:2, fillColor:'#2f9e44', fillOpacity:1}) .bindPopup('<b>侨生博物馆</b><br><span style=&#34;color:#666&#34;>10/3 世遗美食</span>') .bindTooltip('侨生博物馆', {direction:'top', offset:[0,-6]}).addTo(dayLayer[1]);
+L.circleMarker([5.418691,100.338562], {radius:8, color:'#fff', weight:2, fillColor:'#2f9e44', fillOpacity:1}) .bindPopup('<b>观音亭 Kuan Yin Teng</b><br><span style=&#34;color:#666&#34;>10/3 世遗美食</span>') .bindTooltip('观音亭 Kuan Yin Teng', {direction:'top', offset:[0,-6]}).addTo(dayLayer[1]);
+L.circleMarker([5.417151,100.33834], {radius:8, color:'#fff', weight:2, fillColor:'#2f9e44', fillOpacity:1}) .bindPopup('<b>马里安曼印度庙</b><br><span style=&#34;color:#666&#34;>10/3 世遗美食</span>') .bindTooltip('马里安曼印度庙', {direction:'top', offset:[0,-6]}).addTo(dayLayer[1]);
+L.circleMarker([5.416953,100.33705], {radius:8, color:'#fff', weight:2, fillColor:'#2f9e44', fillOpacity:1}) .bindPopup('<b>甲必丹吉宁清真寺</b><br><span style=&#34;color:#666&#34;>10/3 世遗美食</span>') .bindTooltip('甲必丹吉宁清真寺', {direction:'top', offset:[0,-6]}).addTo(dayLayer[1]);
+L.circleMarker([5.417159,100.333305], {radius:8, color:'#fff', weight:2, fillColor:'#2f9e44', fillOpacity:1}) .bindPopup('<b>汕头街 Lebuh Kimberley</b><br><span style=&#34;color:#666&#34;>10/3 世遗美食</span>') .bindTooltip('汕头街 Lebuh Kimberley', {direction:'top', offset:[0,-6]}).addTo(dayLayer[1]);
+L.circleMarker([5.417156,100.33779], {radius:8, color:'#fff', weight:2, fillColor:'#2f9e44', fillOpacity:1}) .bindPopup('<b>牛干冬街 Chulia Street</b><br><span style=&#34;color:#666&#34;>10/3 世遗美食</span>') .bindTooltip('牛干冬街 Chulia Street', {direction:'top', offset:[0,-6]}).addTo(dayLayer[1]);
+L.circleMarker([5.41714,100.330674], {radius:8, color:'#fff', weight:2, fillColor:'#2f9e44', fillOpacity:1}) .bindPopup('<b>槟榔律叻沙+煎蕊</b><br><span style=&#34;color:#666&#34;>10/3 世遗美食</span>') .bindTooltip('槟榔律叻沙+煎蕊', {direction:'top', offset:[0,-6]}).addTo(dayLayer[1]);
+L.circleMarker([5.459765,100.206004], {radius:8, color:'#fff', weight:2, fillColor:'#e8a020', fillOpacity:1}) .bindPopup('<b>槟城国家公园(猴子海滩)</b><br><span style=&#34;color:#666&#34;>10/4 国家公园徒步</span>') .bindTooltip('槟城国家公园(猴子海滩)', {direction:'top', offset:[0,-6]}).addTo(dayLayer[2]);
+L.circleMarker([5.407058,100.272532], {radius:8, color:'#fff', weight:2, fillColor:'#e8a020', fillOpacity:1}) .bindPopup('<b>亚依淡 Air Itam</b><br><span style=&#34;color:#666&#34;>10/4 国家公园徒步</span>') .bindTooltip('亚依淡 Air Itam', {direction:'top', offset:[0,-6]}).addTo(dayLayer[2]);
+L.circleMarker([5.439811,100.309129], {radius:8, color:'#fff', weight:2, fillColor:'#e8a020', fillOpacity:1}) .bindPopup('<b>新关仔角熟食中心</b><br><span style=&#34;color:#666&#34;>10/4 国家公园徒步</span>') .bindTooltip('新关仔角熟食中心', {direction:'top', offset:[0,-6]}).addTo(dayLayer[2]);
+L.circleMarker([5.405679,100.28221], {radius:8, color:'#fff', weight:2, fillColor:'#e03131', fillOpacity:1}) .bindPopup('<b>升旗山缆车山脚站</b><br><span style=&#34;color:#666&#34;>10/5 升旗山+人文+机场</span>') .bindTooltip('升旗山缆车山脚站', {direction:'top', offset:[0,-6]}).addTo(dayLayer[3]);
+L.circleMarker([5.399721,100.273889], {radius:8, color:'#fff', weight:2, fillColor:'#e03131', fillOpacity:1}) .bindPopup('<b>极乐寺 Kek Lok Si</b><br><span style=&#34;color:#666&#34;>10/5 升旗山+人文+机场</span>') .bindTooltip('极乐寺 Kek Lok Si', {direction:'top', offset:[0,-6]}).addTo(dayLayer[3]);
+L.circleMarker([5.414265,100.337592], {radius:8, color:'#fff', weight:2, fillColor:'#e03131', fillOpacity:1}) .bindPopup('<b>龙山堂邱公司</b><br><span style=&#34;color:#666&#34;>10/5 升旗山+人文+机场</span>') .bindTooltip('龙山堂邱公司', {direction:'top', offset:[0,-6]}).addTo(dayLayer[3]);
+L.circleMarker([5.421518,100.334767], {radius:8, color:'#fff', weight:2, fillColor:'#e03131', fillOpacity:1}) .bindPopup('<b>蓝屋 Cheong Fatt Tze</b><br><span style=&#34;color:#666&#34;>10/5 升旗山+人文+机场</span>') .bindTooltip('蓝屋 Cheong Fatt Tze', {direction:'top', offset:[0,-6]}).addTo(dayLayer[3]);
+L.circleMarker([5.415054,100.338342], {radius:8, color:'#fff', weight:2, fillColor:'#e03131', fillOpacity:1}) .bindPopup('<b>谢氏宗祠 Cheah Kongsi</b><br><span style=&#34;color:#666&#34;>10/5 升旗山+人文+机场</span>') .bindTooltip('谢氏宗祠 Cheah Kongsi', {direction:'top', offset:[0,-6]}).addTo(dayLayer[3]);
+L.circleMarker([5.417554,100.335762], {radius:8, color:'#fff', weight:2, fillColor:'#e03131', fillOpacity:1}) .bindPopup('<b>德盛饭店 Teksen</b><br><span style=&#34;color:#666&#34;>10/5 升旗山+人文+机场</span>') .bindTooltip('德盛饭店 Teksen', {direction:'top', offset:[0,-6]}).addTo(dayLayer[3]);
+L.circleMarker([5.437297,100.309403], {radius:8, color:'#fff', weight:2, fillColor:'#e03131', fillOpacity:1}) .bindPopup('<b>Gurney Plaza</b><br><span style=&#34;color:#666&#34;>10/5 升旗山+人文+机场</span>') .bindTooltip('Gurney Plaza', {direction:'top', offset:[0,-6]}).addTo(dayLayer[3]);
+L.circleMarker([5.417997,100.342388], {radius:8, color:'#fff', weight:2, fillColor:'#e03131', fillOpacity:1}) .bindPopup('<b>Auntie Gaik Lean&#39;s</b><br><span style=&#34;color:#666&#34;>10/5 升旗山+人文+机场</span>') .bindTooltip('Auntie Gaik Lean&#39;s', {direction:'top', offset:[0,-6]}).addTo(dayLayer[3]);
+L.circleMarker([5.296732,100.274786], {radius:8, color:'#fff', weight:2, fillColor:'#e03131', fillOpacity:1}) .bindPopup('<b>槟城机场 PEN</b><br><span style=&#34;color:#666&#34;>10/5 升旗山+人文+机场</span>') .bindTooltip('槟城机场 PEN', {direction:'top', offset:[0,-6]}).addTo(dayLayer[3]);
+L.circleMarker([5.45801,100.30983], {radius:8, color:'#fff', weight:2, fillColor:'#e03131', fillOpacity:1}) .bindPopup('<b>按摩（酒店周边，未指定门店）</b><br><span style=&#34;color:#666&#34;>10/5 升旗山+人文+机场</span>') .bindTooltip('按摩（酒店周边，未指定门店）', {direction:'top', offset:[0,-6]}).addTo(dayLayer[3]);
+L.polyline([[5.458013, 100.309834], [5.417159, 100.333305], [5.411966, 100.340031], [5.415675, 100.33594], [5.410773, 100.335427], [5.417792, 100.341128], [5.418691, 100.338562], [5.417151, 100.33834], [5.416953, 100.33705], [5.417156, 100.33779], [5.41714, 100.330674], [5.458013, 100.309834]], {color:'#2f9e44', weight:3, opacity:0.75, dashArray:'6 5'}).bindTooltip('🟢 10/3 世遗+美食 动线', {sticky:true}).addTo(routeLayer[1]);
+L.polyline([[5.458013, 100.309834], [5.459765, 100.206004], [5.407058, 100.272532], [5.458013, 100.309834], [5.439811, 100.309129], [5.458013, 100.309834]], {color:'#e8a020', weight:3, opacity:0.75, dashArray:'6 5'}).bindTooltip('🟡 10/4 国家公园徒步 动线', {sticky:true}).addTo(routeLayer[2]);
+L.polyline([[5.458013, 100.309834], [5.405679, 100.28221], [5.399721, 100.273889], [5.414265, 100.337592], [5.421518, 100.334767], [5.415054, 100.338342], [5.417554, 100.335762], [5.437297, 100.309403], [5.45801, 100.30983], [5.417997, 100.342388], [5.296732, 100.274786]], {color:'#e03131', weight:3, opacity:0.75, dashArray:'6 5'}).bindTooltip('🔴 10/5 升旗山+人文+机场 动线', {sticky:true}).addTo(routeLayer[3]);
+var overlays = {};
+overlays['🏨 住宿'] = dayLayer[0];
+overlays['🟢 10/3 世遗+美食'] = dayLayer[1];
+overlays['🟡 10/4 国家公园徒步'] = dayLayer[2];
+overlays['🔴 10/5 升旗山+人文+机场'] = dayLayer[3];
+overlays['🟢 10/3 动线'] = routeLayer[1];
+overlays['🟡 10/4 动线'] = routeLayer[2];
+overlays['🔴 10/5 动线'] = routeLayer[3];
+for (var k in overlays) overlays[k].addTo(map);
+L.control.layers({'OSM HOT（主）':carto, 'OSM 标准（备）':osmL}, overlays, {collapsed:true, position:'topright'}).addTo(map);
+L.control.scale({imperial:false}).addTo(map);
+</script></body></html>
