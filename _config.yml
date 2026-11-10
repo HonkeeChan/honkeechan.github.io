@@ -9,6 +9,8 @@ theme: minima
 
 # 导航
 header_pages:
+  - ai/index.md
+  - topics/index.md
   - travel/index.md
   - about.md
 
